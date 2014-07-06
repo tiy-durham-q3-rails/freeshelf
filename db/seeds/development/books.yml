@@ -1,0 +1,21 @@
+options:
+  find_existing_by: ['title', 'url']
+
+records:
+  - sprig_id: 1
+    title: Why's (Poignant) Guide to Ruby
+    copyright: 2005 _why the lucky stiff
+    publish_year: 2005
+    url: http://mislav.uniqpath.com/poignant-guide/
+
+  - sprig_id: 2
+    title: Objects on Rails
+    copyright: 2014 Avdi Grimm
+    publish_year: 2014
+    url: http://objectsonrails.com/
+
+  - sprig_id: 3
+    title: The Craft of Text Editing
+    copyright: 1999 Craig A. Finseth
+    publish_year: 1999
+    url: http://www.finseth.com/craft/

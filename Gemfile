@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 source 'https://rails-assets.org'
 
 ## Rails core gems
-gem 'rails', '4.1.4'
+gem 'rails', '~> 4.1'
 gem 'pg'
 gem 'sass-rails', '~> 4.0.3'
 gem 'uglifier', '>= 1.3.0'
@@ -14,10 +14,12 @@ gem 'jbuilder', '~> 2.0'
 gem 'spring', group: :development
 
 ## User gems
-gem 'font-awesome-sass'
-gem "foundation-rails"
-gem 'simple_form'
-gem 'unicorn'
+gem 'bcrypt', '~> 3.1.7'
+gem 'font-awesome-sass', "~> 4.1"
+gem "foundation-rails", "~> 5.3"
+gem 'simple_form', "~> 3.0"
+gem 'slim'
+gem 'unicorn', "~> 4.8"
 
 group :production do
   gem 'rails_12factor'
@@ -28,9 +30,8 @@ group :development, :test do
   gem "binding_of_caller"
   gem 'dotenv-rails'
   gem "faker"
+  gem 'holder_rails'
   gem "pry-rails"
   gem 'quiet_assets'
+  gem "sprig"
 end
-
-# Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'

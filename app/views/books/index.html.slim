@@ -1,0 +1,10 @@
+.row
+  .large-12.columns
+    ul.large-block-grid-3.medium-block-grid-2.small-block-grid-1
+      - @books.each do |book|
+        li.book
+          .book-cover
+            = holder_tag '100x150', nil, 'social'
+          .book-info
+            h3: a href=book.url = book.title
+            p = book.publish_year

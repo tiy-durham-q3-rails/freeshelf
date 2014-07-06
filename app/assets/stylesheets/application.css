@@ -12,4 +12,17 @@
  *
  *= require_tree .
  *= require_self
+ *= require foundation_and_overrides
  */
+
+@import url(http://fonts.googleapis.com/css?family=Bubblegum+Sans);
+
+#main {
+  margin-top: 20px;
+}
+
+h1.logo {
+  font-family: 'Bubblegum Sans', cursive;
+  font-size: 500%;
+  text-align: center;
+}
