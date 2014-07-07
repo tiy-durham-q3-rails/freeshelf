@@ -4,18 +4,37 @@ options:
 records:
   - sprig_id: 1
     title: Why's (Poignant) Guide to Ruby
-    copyright: 2005 _why the lucky stiff
+    author: _why the lucky stiff
     publish_year: 2005
     url: http://mislav.uniqpath.com/poignant-guide/
+    description: >
+      I’ll be straight with you. I want you to cry. To weep. To whimper sweetly. This book is a poignant guide to Ruby.
+      That means code so beautiful that tears are shed. That means gallant tales and somber truths that have you waking
+      up the next morning in the arms of this book. Hugging it tightly to you all the day long.
 
   - sprig_id: 2
     title: Objects on Rails
-    copyright: 2014 Avdi Grimm
+    author: Avdi Grimm
     publish_year: 2014
     url: http://objectsonrails.com/
+    description: >
+      This is a "developer's notebook" documenting some guidelines, techniques, and ideas for applying classic
+      object-oriented thought to Ruby on Rails applications.
 
   - sprig_id: 3
     title: The Craft of Text Editing
-    copyright: 1999 Craig A. Finseth
+    author: Craig A. Finseth
     publish_year: 1999
     url: http://www.finseth.com/craft/
+    description: >
+      In its most general form, text editing is the process of taking some input, changing it, and producing some
+      output. Ideally, the desired changes would be made immediately and with no effort required beyond the mere
+      thought of the change. Unfortunately, the ideal case is not yet achievable. We are thus consigned to using
+      tools such as computers to effect our desired changes.
+
+  - sprig_id: 4
+    title: Eloquent JavaScript, 2nd Edition
+    author: Marijn Haverbeke
+    publish_year: 2014
+    url: http://eloquentjavascript.net/2nd_edition/preview/
+    description: A modern introduction to JavaScript, programming, and the wonders of the digital.

@@ -7,4 +7,6 @@
             = holder_tag '100x150', nil, 'social'
           .book-info
             h3: a href=book.url = book.title
-            p = book.publish_year
+            .author = book.author
+            .publish-year = book.publish_year
+            .description = simple_format(book.description)
