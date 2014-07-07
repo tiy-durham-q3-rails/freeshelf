@@ -4,14 +4,16 @@
       h2 Log in
   .row
     .medium-6.columns
-      = label_tag :email
-        | Email
-      = email_field_tag :email, nil, class: "mailcheck"
-      small.hint style="display: none"
+      .input
+        = label_tag :email
+          | Email
+        = email_field_tag :email, nil, class: "mailcheck"
+        small.hint style="display: none"
     .medium-6.columns
-      = label_tag :password
-        | Password
-        = password_field_tag :password
+      .input
+        = label_tag :password
+          | Password
+          = password_field_tag :password
   .row
     .small-12.columns
       = button_tag "Login", class: "small"

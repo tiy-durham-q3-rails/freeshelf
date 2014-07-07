@@ -1313,6 +1313,10 @@ body {
   padding: rem-calc(0 0 14 0);
 }
 
-.hint {
+small.hint {
   @include form-error-message($bg: #f4bf75)
+}
+
+.hint input, .hint textarea, .hint select {
+  margin-bottom: 0;
 }

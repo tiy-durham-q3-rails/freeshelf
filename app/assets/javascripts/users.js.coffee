@@ -4,10 +4,14 @@
 
 #= require mailcheck
 
-$(".mailcheck").on 'blur', ->
+$(".mailcheck").on 'keydown', debounce(->
   $this = $(this)
   $this.mailcheck
+    topLevelDomains: ['com', 'net', 'org', 'me', 'us', 'io']
     suggested: (element, suggestion) ->
+      $this.parent().addClass("hint")
       $this.siblings(".hint").html("Do you mean #{suggestion.full}?").show()
     empty: (element) ->
+      $this.parent().removeClass("hint")
       $this.siblings(".hint").html("").hide()
+, 250)
