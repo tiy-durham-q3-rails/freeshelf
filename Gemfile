@@ -17,6 +17,7 @@ gem 'spring', group: :development
 gem 'bcrypt', '~> 3.1.7'
 gem 'font-awesome-sass', "~> 4.1"
 gem "foundation-rails", "~> 5.3"
+gem 'rails-assets-mailcheck'
 gem 'simple_form', "~> 3.0"
 gem 'slim'
 gem 'unicorn', "~> 4.8"

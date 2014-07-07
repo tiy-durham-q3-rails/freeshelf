@@ -1312,3 +1312,7 @@ body {
   );
   padding: rem-calc(0 0 14 0);
 }
+
+.hint {
+  @include form-error-message($bg: #f4bf75)
+}
