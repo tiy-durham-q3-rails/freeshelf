@@ -25,6 +25,7 @@ gem 'unicorn', "~> 4.8"
 
 group :production do
   gem 'rails_12factor'
+  gem 'postmark'
 end
 
 group :development, :test do

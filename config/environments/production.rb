@@ -81,9 +81,6 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   config.action_mailer.default_url_options = { host: 'freeshelf.herokuapp.com' }
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = { :address => ENV["POSTMARK_SMTP_SERVER"],
-                                         :user_name => ENV['POSTMARK_API_KEY'],
-                                         :password => ENV['POSTMARK_API_KEY'],
-                                         :authentication => :plain}
+  config.action_mailer.delivery_method   = :postmark
+  config.action_mailer.postmark_settings = { :api_key => ENV['POSTMARK_API_KEY'] }
 end
