@@ -45,9 +45,9 @@
 // $font-weight-bold: bold !default
 
 // We use these to control various global styles
-// $body-bg: #fff;
-// $body-font-color: #222;
-// $body-font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+$body-bg: #f5f5f5;
+$body-font-color: #202020;
+$body-font-family: "Source Sans Pro", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
 // $body-font-weight: $font-weight-normal;
 // $body-font-style: normal;
 
@@ -60,12 +60,12 @@
 // $default-float: left;
 
 // We use these as default colors throughout
-// $primary-color: #008CBA;
-// $secondary-color: #e7e7e7;
-// $alert-color: #f04124;
-// $success-color: #43AC6A;
-// $warning-color: #f08a24;
-// $info-color: #a0d3e8;
+$primary-color: #6a9fb5;
+$secondary-color: #e0e0e0;
+$alert-color: #ac4142;
+$success-color: #90a959;
+$warning-color: #f4bf75;
+$info-color: #75b5aa;
 
 // We use these to make sure border radius matches unless we want it different.
 // $global-radius: 3px;
@@ -127,7 +127,7 @@
 // $header-font-family: $body-font-family;
 // $header-font-weight: $font-weight-normal;
 // $header-font-style: normal;
-// $header-font-color: #222;
+$header-font-color: #151515;
 // $header-line-height: 1.4;
 // $header-top-margin: .2rem;
 // $header-bottom-margin: .5rem;
@@ -185,7 +185,7 @@
 // We use these to style the <hr> element
 // $hr-border-width: 1px;
 // $hr-border-style: solid;
-// $hr-border-color: #ddd;
+$hr-border-color: #d0d0d0;
 // $hr-margin: rem-calc(20);
 
 // We use these to style lists
