@@ -1,5 +1,5 @@
 class AccountMailer < ActionMailer::Base
-  default from: "from@example.com"
+  default from: "clinton@dreisbach.us"
 
   def password_reset(reset)
     @user = reset.user
