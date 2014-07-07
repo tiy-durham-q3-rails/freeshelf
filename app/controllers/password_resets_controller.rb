@@ -21,7 +21,10 @@ class PasswordResetsController < ApplicationController
   end
 
   def update
-    if @user.update(password_params)
+    if password_params[:password].blank?
+      @user.confirm_password_present
+      render :show
+    elsif @user.update(password_params)
       @password_reset.destroy
       redirect_to root_path, notice: "Your password has been updated."
     else
