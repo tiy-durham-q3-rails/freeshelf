@@ -4,6 +4,9 @@
     = simple_form_for @user do |f|
       = f.input :name
       = f.input :email
-      = f.input :password
-      = f.input :password_confirmation
+      .row
+        .medium-6.columns
+          = f.input :password
+        .medium-6.columns
+          = f.input :password_confirmation
       = f.button :submit

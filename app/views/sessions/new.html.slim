@@ -1,17 +1,16 @@
 = form_tag login_path do
   .row
-    .large-12.columns
+    .small-12.columns
       h2 Log in
   .row
-    .large-12.columns
+    .medium-6.columns
       = label_tag :email
         | Email
         = text_field_tag :email
-  .row
-    .large-12.columns
+    .medium-6.columns
       = label_tag :password
         | Password
         = password_field_tag :password
   .row
-    .large-12.columns
-      = button_tag "Login"
+    .small-12.columns
+      = button_tag "Login", class: "small"

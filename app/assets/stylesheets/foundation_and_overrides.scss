@@ -1302,3 +1302,13 @@ $hr-border-color: #d0d0d0;
 body {
   background-image: image-url('agsquare/agsquare.png');
 }
+
+.main-nav {
+  @include side-nav(
+    // Border color of divider
+    $divider-color: #d0d0d0,
+    // Font size of nav items
+    $font-size: 1.2em
+  );
+  padding: rem-calc(0 0 14 0);
+}

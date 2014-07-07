@@ -19,12 +19,19 @@
 @import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,400italic,600italic,700italic);
 
 
-#main {
-  margin-top: 20px;
+body {
+  margin-top: 30px;
 }
 
 h1.logo {
   font-family: 'Bubblegum Sans', cursive;
+}
+
+.root .logo {
   font-size: 500%;
   text-align: center;
+}
+
+.logo a {
+  color: #151515;
 }
