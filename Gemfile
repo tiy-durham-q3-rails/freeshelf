@@ -17,6 +17,7 @@ gem 'spring', group: :development
 gem 'bcrypt', '~> 3.1.7'
 gem 'font-awesome-sass', "~> 4.1"
 gem "foundation-rails", "~> 5.3"
+gem 'holder_rails'
 gem 'rails-assets-mailcheck'
 gem 'simple_form', "~> 3.0"
 gem 'slim'
@@ -31,7 +32,6 @@ group :development, :test do
   gem "binding_of_caller"
   gem 'dotenv-rails'
   gem "faker"
-  gem 'holder_rails'
   gem "pry-rails"
   gem 'quiet_assets'
   gem "sprig"
