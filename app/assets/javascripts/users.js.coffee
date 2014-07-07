@@ -4,7 +4,7 @@
 
 #= require mailcheck
 
-$("#user_email").on 'blur', ->
+$(".mailcheck").on 'blur', ->
   $this = $(this)
   $this.mailcheck
     suggested: (element, suggestion) ->

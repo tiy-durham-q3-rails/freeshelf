@@ -6,7 +6,8 @@
     .medium-6.columns
       = label_tag :email
         | Email
-        = text_field_tag :email
+      = email_field_tag :email, nil, class: "mailcheck"
+      small.hint style="display: none"
     .medium-6.columns
       = label_tag :password
         | Password
@@ -14,3 +15,6 @@
   .row
     .small-12.columns
       = button_tag "Login", class: "small"
+  .row
+    .small-12.columns
+      = link_to "Forgot your password?", new_password_reset_path

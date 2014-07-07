@@ -4,7 +4,7 @@
     = simple_form_for @user do |f|
       = f.input :name
       = f.input :email do
-        = f.input_field :email, type: :email
+        = f.input_field :email, type: :email, class: "mailcheck"
         = f.hint "Must be a valid email", style: "display: none"
       .row
         .medium-6.columns

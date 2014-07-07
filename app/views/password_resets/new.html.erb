@@ -1,0 +1,26 @@
+<h1>Reset your password</h1>
+
+<p>
+  When you enter your email address, a reset password link will be sent to you.
+</p>
+
+<%= form_tag password_resets_path do %>
+  <div class="row">
+    <div class="large-9 columns">
+      <div class="row">
+        <div class="large-3 columns">
+          <%= label_tag :email, "Your email", class: "right inline" %>
+        </div>
+
+        <div class="large-9 columns">
+          <%= email_field_tag :email, nil, class: "mailcheck" %>
+          <small class="hint" style="display: none"></small>
+        </div>
+      </div>
+    </div>
+    <div class="large-3 columns">
+      <%= submit_tag "Reset password", class: "button tiny" %>
+    </div>
+  </div>
+
+<% end %>
