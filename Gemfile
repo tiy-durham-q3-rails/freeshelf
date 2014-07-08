@@ -17,14 +17,16 @@ gem 'spring', group: :development
 gem 'acts-as-taggable-on'
 gem 'bcrypt', '~> 3.1.7'
 gem 'carrierwave'
+gem 'envb-rails'
 gem 'font-awesome-sass', "~> 4.1"
 gem "foundation-rails", "~> 5.3"
-gem "fog", "~> 1.3.1"
+gem "fog"
 gem 'holder_rails'
 gem 'mini_magick'
 gem 'rails-assets-mailcheck'
 gem 'simple_form', "~> 3.0"
 gem 'slim'
+gem "sprig"
 gem 'unicorn', "~> 4.8"
 
 group :production do
@@ -39,5 +41,4 @@ group :development, :test do
   gem "faker"
   gem "pry-rails"
   gem 'quiet_assets'
-  gem "sprig"
 end
