@@ -1,0 +1,14 @@
+h1 Reset your password
+p
+  | When you enter your email address, a reset password link will be sent to you.
+= form_tag password_resets_path do
+  .row
+    .large-9.columns
+      .row
+        .large-3.columns
+          = label_tag :email, "Your email", class: "right inline"
+        .large-9.columns
+          = email_field_tag :email, nil, class: "mailcheck"
+          small.hint style="display: none"
+    .large-3.columns
+      = submit_tag "Reset password", class: "button tiny"
