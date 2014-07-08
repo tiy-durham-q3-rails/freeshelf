@@ -1,0 +1,8 @@
+options:
+  find_existing_by: ['email']
+
+records:
+  - sprig_id: 1
+    name: Clinton Dreisbach
+    email: clinton@dreisbach.us
+    password: password
