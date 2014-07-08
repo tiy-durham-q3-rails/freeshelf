@@ -6,7 +6,9 @@ Rails.application.routes.draw do
 
   resources :password_resets, only: [:new, :create, :show, :update]
   resources :users, only: [:create]
-  resources :books, except: [:destroy]
+  resources :books, except: [:destroy] do
+    get 'tags/:tag' => 'books#tags', :on => :collection, :as => :tag
+  end
 
   root 'books#index'
 end

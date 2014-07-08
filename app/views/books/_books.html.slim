@@ -1,0 +1,14 @@
+ul.large-block-grid-3.medium-block-grid-2.small-block-grid-1.book-list
+  - books.each do |book|
+    li.book
+      .book-cover
+        = image_tag book.cover.thumb.url
+      .book-info
+        h3 = link_to book.title, book
+        .author = book.author
+        .publish-year = book.publish_year
+        .tags
+          - book.tags.each do |tag|
+            span.secondary.radius.label>
+              = link_to tag, tag_books_path(tag.name)
+        .description = simple_format(book.description)

@@ -6,6 +6,11 @@ class BooksController < ApplicationController
     @books = Book.all
   end
 
+  def tags
+    @tag = params[:tag]
+    @books = Book.tagged_with(@tag)
+  end
+
   def show
   end
 
@@ -41,6 +46,6 @@ class BooksController < ApplicationController
 
   def book_params
     params.require(:book).permit(:title, :url, :publish_year, :author, :description, :cover, :cover_cache,
-                                 :remote_cover_url, :document)
+                                 :remote_cover_url, :document, :tag_list)
   end
 end

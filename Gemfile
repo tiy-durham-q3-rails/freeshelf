@@ -14,6 +14,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'spring', group: :development
 
 ## User gems
+gem 'acts-as-taggable-on'
 gem 'bcrypt', '~> 3.1.7'
 gem 'carrierwave'
 gem 'font-awesome-sass', "~> 4.1"
