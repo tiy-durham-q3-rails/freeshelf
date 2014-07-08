@@ -2,12 +2,14 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.book {
+.book-list {
   .book-cover {
     float: right;
     margin: 0 0 10px 10px;
   }
+}
 
+.book-info {
   .author {
     font-style: italic;
   }

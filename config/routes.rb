@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   resources :password_resets, only: [:new, :create, :show, :update]
   resources :users, only: [:create]
-  resources :books
+  resources :books, except: [:destroy]
 
   root 'books#index'
 end

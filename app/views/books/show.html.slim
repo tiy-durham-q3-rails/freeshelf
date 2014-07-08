@@ -1,0 +1,22 @@
+.row
+  .medium-9.columns
+    .book-info
+      h2
+        = @book.title
+        - if current_user
+          small< = link_to "Edit", edit_book_path(@book)
+      .row
+        .small-9.columns
+          p
+            span.author
+              ' #{@book.author},
+            span.publish-year = @book.publish_year
+        .small-3.columns
+          p.right
+            = link_to "Link to book", @book.url
+    .description = simple_format(@book.description)
+
+  .medium-3.columns
+    .book-cover
+      = holder_tag '200x300', nil, 'social'
+

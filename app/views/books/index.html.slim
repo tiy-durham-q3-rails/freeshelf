@@ -1,12 +1,12 @@
 .row
   .large-12.columns
-    ul.large-block-grid-3.medium-block-grid-2.small-block-grid-1
+    ul.large-block-grid-3.medium-block-grid-2.small-block-grid-1.book-list
       - @books.each do |book|
         li.book
           .book-cover
             = holder_tag '100x150', nil, 'social'
           .book-info
-            h3: a href=book.url = book.title
+            h3 = link_to book.title, book
             .author = book.author
             .publish-year = book.publish_year
             .description = simple_format(book.description)

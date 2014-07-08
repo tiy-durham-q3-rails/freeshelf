@@ -1,9 +1,12 @@
 class BooksController < ApplicationController
   before_action :authorize, except: [:index, :show]
-  before_action :find_book, only: [:edit, :update]
+  before_action :find_book, only: [:show, :edit, :update]
 
   def index
     @books = Book.all
+  end
+
+  def show
   end
 
   def new
@@ -13,7 +16,7 @@ class BooksController < ApplicationController
   def create
     @book = Book.new(book_params)
     if @book.save
-      redirect_to books_path, notice: "Your book was added."
+      redirect_to @book, notice: "Your book was added."
     else
       render :new
     end
@@ -24,7 +27,7 @@ class BooksController < ApplicationController
 
   def update
     if @book.update(book_params)
-      redirect_to books_path, notice: "Your book was updated."
+      redirect_to @book, notice: "Your book was updated."
     else
       render :edit
     end
