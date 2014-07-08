@@ -18,5 +18,5 @@
 
   .medium-3.columns
     .book-cover
-      = holder_tag '200x300', nil, 'social'
+      = image_tag @book.cover_url if @book.cover?
 

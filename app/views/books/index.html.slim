@@ -4,7 +4,7 @@
       - @books.each do |book|
         li.book
           .book-cover
-            = image_tag book.cover.thumb
+            = image_tag book.cover.thumb.url
           .book-info
             h3 = link_to book.title, book
             .author = book.author
