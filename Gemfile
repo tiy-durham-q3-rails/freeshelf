@@ -15,9 +15,11 @@ gem 'spring', group: :development
 
 ## User gems
 gem 'bcrypt', '~> 3.1.7'
+gem 'carrierwave'
 gem 'font-awesome-sass', "~> 4.1"
 gem "foundation-rails", "~> 5.3"
 gem 'holder_rails'
+gem 'mini_magick'
 gem 'rails-assets-mailcheck'
 gem 'simple_form', "~> 3.0"
 gem 'slim'

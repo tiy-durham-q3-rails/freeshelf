@@ -1,7 +1,14 @@
-= simple_form_for @book do |form|
+= simple_form_for @book, :html => {:multipart => true} do |form|
   = form.input :title
   = form.input :author
   = form.input :url
   = form.input :publish_year
   = form.input :description, input_html: {rows: 10}
+  .row
+    .medium-6.columns
+      = form.input :cover, :as => :file
+      = form.input :cover_cache, :as => :hidden
+    .medium-6.columns
+      = image_tag(@book.cover_url) if @book.cover?
+
   = form.button :submit
