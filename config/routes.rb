@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :books, except: [:destroy] do
     get 'tags/:tag' => 'books#tags', :on => :collection, :as => :tag
   end
+  resources :favorites, only: [:create, :destroy]
 
   root 'books#index'
 end
