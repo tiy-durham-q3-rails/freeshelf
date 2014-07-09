@@ -3,16 +3,16 @@ class BooksController < ApplicationController
   before_action :find_book, only: [:show, :edit, :update]
 
   def index
-    @books = Book.includes(:tags)
+    @books = Book.includes(:tags).page params[:page]
   end
 
   def tags
     @tag = params[:tag]
-    @books = Book.tagged_with(@tag).includes(:tags)
+    @books = Book.tagged_with(@tag).includes(:tags).page params[:page]
   end
 
   def show
-    @related_books = @book.find_related_tags.take(3)
+    @related_books = @book.find_related_tags
   end
 
   def new

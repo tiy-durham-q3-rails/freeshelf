@@ -18,6 +18,7 @@ gem 'acts-as-taggable-on'
 gem 'bcrypt', '~> 3.1.7'
 gem 'carrierwave'
 gem 'envb-rails'
+gem 'kaminari'
 gem "faker"
 gem 'font-awesome-sass', "~> 4.1"
 gem "foundation-rails", "~> 5.3"
