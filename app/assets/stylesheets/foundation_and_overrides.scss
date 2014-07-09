@@ -1320,3 +1320,9 @@ small.hint {
 .hint input, .hint textarea, .hint select {
   margin-bottom: 0;
 }
+
+.book-list {
+  .title {
+    font-size: $h4-font-size;
+  }
+}

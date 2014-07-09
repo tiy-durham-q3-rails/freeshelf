@@ -1,10 +1,10 @@
 ul.large-block-grid-3.medium-block-grid-2.small-block-grid-1.book-list
   - books.each do |book|
     li.book
-      .book-cover
-        = image_tag book.cover.thumb.url
+      - if book.cover?
+        .book-cover = link_to image_tag(book.cover.thumb.url), book
       .book-info
-        h3 = link_to book.title, book
+        .title = link_to book.title, book
         .author = book.author
         .publish-year = book.publish_year
         .tags

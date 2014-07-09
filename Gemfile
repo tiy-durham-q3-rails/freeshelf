@@ -22,6 +22,7 @@ gem 'font-awesome-sass', "~> 4.1"
 gem "foundation-rails", "~> 5.3"
 gem "fog"
 gem 'holder_rails'
+gem 'identicon'
 gem 'mini_magick'
 gem 'rails-assets-mailcheck'
 gem 'simple_form', "~> 3.0"
