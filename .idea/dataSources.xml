@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" hash="2989300264">
+    <data-source source="LOCAL" name="Rails freeshelf: development" uuid="ab3251f9-2080-44a2-a6e2-49261caa67ce">
+      <driver-ref>postgresql</driver-ref>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql:freeshelf_development</jdbc-url>
+      <libraries />
+    </data-source>
+    <data-source source="LOCAL" name="Rails freeshelf: test" uuid="7b46e1e7-c2ef-4fea-8c3b-39abdbb2c8c5">
+      <driver-ref>postgresql</driver-ref>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql:freeshelf_test</jdbc-url>
+      <libraries />
+    </data-source>
+    <data-source source="LOCAL" name="Rails freeshelf: production" uuid="f576cac0-b5ec-4429-855e-1693409596d4">
+      <driver-ref>postgresql</driver-ref>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql:freeshelf_production</jdbc-url>
+      <user-name>freeshelf</user-name>
+      <user-password>df96df8fdf97df8adfefdfe4dffcdff1df8ddfecdff8dfefdfefdff9dfe2dfefdfe6dfecdff5dfeedfebdffedfebdfe8dfebdff9dfefdff5dffadfebdff9dff9dffddfe5dff8dfeedf8ddff7df8adf8fdf94</user-password>
+      <libraries />
+    </data-source>
+  </component>
+</project>
+
