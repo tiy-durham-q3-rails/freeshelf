@@ -5,6 +5,12 @@ class User < ActiveRecord::Base
   validates :email, presence: true, uniqueness: true
   validates :password, confirmation: true
 
+  has_many :favorites
+  has_many :favorite_books, :through => :favorites,
+           :source => :favoritable, :source_type => "Book"
+  has_many :favorite_tags, :through => :favorites,
+           :source => :favoritable, :source_type => "ActsAsTaggableOn::Tag"
+
   def confirm_password_present
     if password.blank?
       errors.add(:password, "must be present")

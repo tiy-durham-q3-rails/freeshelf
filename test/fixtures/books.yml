@@ -2,12 +2,12 @@
 
 one:
   title: MyString
-  copyright: MyString
+  author: MyString
   publish_year: 1
   url: MyString
 
 two:
   title: MyString
-  copyright: MyString
+  author: MyString
   publish_year: 1
   url: MyString
