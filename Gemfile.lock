@@ -58,7 +58,6 @@ GEM
     dotenv-deployment (0.0.2)
     dotenv-rails (0.11.1)
       dotenv (= 0.11.1)
-    envb-rails (0.0.5)
     erubis (2.7.0)
     excon (0.37.0)
     execjs (2.2.1)
@@ -218,7 +217,6 @@ DEPENDENCIES
   carrierwave
   coffee-rails (~> 4.0.0)
   dotenv-rails
-  envb-rails
   faker
   fog
   font-awesome-sass (~> 4.1)
