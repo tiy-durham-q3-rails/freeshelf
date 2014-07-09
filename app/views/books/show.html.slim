@@ -15,6 +15,7 @@
           p.right
             = link_to "Link to book", @book.link
     p.tags
+      = favorite_link_to @book
       - @book.tags.each do |tag|
         span.secondary.radius.label>
           = link_to tag, tag_books_path(tag.name)
