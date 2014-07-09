@@ -23,4 +23,8 @@
   .medium-3.columns
     .book-cover
       = image_tag @book.cover_url if @book.cover?
+.row
+  .columns.related-books
+    h3 Related books
+    = render :partial => "books", :object => @related_books
 
