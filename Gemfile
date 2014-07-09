@@ -18,6 +18,7 @@ gem 'acts-as-taggable-on'
 gem 'bcrypt', '~> 3.1.7'
 gem 'carrierwave'
 gem 'envb-rails'
+gem "faker"
 gem 'font-awesome-sass', "~> 4.1"
 gem "foundation-rails", "~> 5.3"
 gem "fog"
@@ -39,7 +40,6 @@ group :development, :test do
   gem "better_errors"
   gem "binding_of_caller"
   gem 'dotenv-rails'
-  gem "faker"
   gem "pry-rails"
   gem 'quiet_assets'
 end
