@@ -7,8 +7,9 @@ class BooksController < ApplicationController
   end
 
   def tags
-    @tag = params[:tag]
-    @books = Book.tagged_with(@tag).includes(:tags).page params[:page]
+    @tag_name = params[:tag]
+    @tag = ActsAsTaggableOn::Tag.find_by_name(@tag_name)
+    @books = Book.includes(:tags).tagged_with(@tag).page params[:page]
   end
 
   def show
@@ -42,7 +43,7 @@ class BooksController < ApplicationController
   private
 
   def find_book
-    @book = Book.find(params[:id])
+    @book = Book.includes(:tags).find(params[:id])
   end
 
   def book_params

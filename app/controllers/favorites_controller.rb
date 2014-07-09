@@ -2,17 +2,24 @@ class FavoritesController < ApplicationController
   before_action :authorize
 
   def create
-    @f_type = favorite_params[:favoritable_type]
-    @f_id = favorite_params[:favoritable_id]
+    @favoritable = favorite_params[:favoritable_type].constantize.find(favorite_params[:favoritable_id])
 
-    if current_user.favorites.create(favorite_params)
+    if current_user.favorites.create(favoritable: @favoritable)
       render :status => :created
     else
-      render :nothing => true, :status => 500
+      render :nothing => true, :status => :internal_server_error
     end
   end
 
   def destroy
+    @favorite = current_user.favorites.find(params[:id])
+    @favoritable = @favorite.favoritable
+
+    if @favorite.destroy
+      render :create
+    else
+      render :nothing => true, :status => :internal_server_error
+    end
   end
 
   private

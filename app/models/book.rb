@@ -3,7 +3,6 @@ class Book < ActiveRecord::Base
   acts_as_taggable
 
   validates :title, presence: true
-  # validates :url, presence: true, uniqueness: true
   validates :author, presence: true
 
   mount_uploader :cover, CoverUploader
