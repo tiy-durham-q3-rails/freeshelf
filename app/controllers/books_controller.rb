@@ -5,6 +5,7 @@ class BooksController < ApplicationController
   def index
     @books = Book.includes(:tags).page params[:page]
   end
+  
 
   def tags
     @tag_name = params[:tag]
