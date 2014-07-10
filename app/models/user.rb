@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
   validates :email, presence: true, uniqueness: true
   validates :password, confirmation: true
 
+  has_many :books
   has_many :favorites
   has_many :favorite_books, :through => :favorites,
            :source => :favoritable, :source_type => "Book"
