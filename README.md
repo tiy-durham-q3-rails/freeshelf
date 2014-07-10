@@ -24,8 +24,18 @@ rake db:create db:migrate db:seed
 
 After that, you can run `rails server` to start the server or `rails console` for a REPL.
 
-## Roadmap
+## Contributing
 
-* Allow users to add links to free programming books, along with covers for them and descriptions.
-* The books can be tagged to help people explore.
-* Users can comment on books and also thumbs-up them which we will use for sorting.
+If you are new to using git and GitHub, follow these directions:
+
+1. Fork the project.
+2. Clone _your_ copy.
+3. Add another remote:  
+   `git remote add upstream https://github.com/tiy-durham-q3-rails/freeshelf.git`
+4. Make a local branch for your feature.
+5. Write code.
+6. Test it out.
+7. Run `git fetch upstream` and then `git merge upstream/master` in your branch.
+8. Test again.
+9. Push your branch to your repo.
+10. Make a pull request!
