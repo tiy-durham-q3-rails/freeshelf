@@ -1,6 +1,6 @@
 class BooksController < ApplicationController
   before_action :authorize, except: [:index, :show]
-  before_action :find_book, only: [:show, :edit, :update]
+  before_action :find_book, only: [:show, :edit, :edit_tags, :update]
   before_action :correct_user, only: :edit
 
   def index
@@ -11,6 +11,9 @@ class BooksController < ApplicationController
     @tag_name = params[:tag]
     @tag = ActsAsTaggableOn::Tag.find_by_name(@tag_name)
     @books = Book.includes(:tags).tagged_with(@tag).page params[:page]
+  end
+
+  def edit_tags
   end
 
   def show

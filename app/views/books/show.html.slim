@@ -4,7 +4,7 @@
       h2
         = @book.title
         - if current_user
-          small< = link_to "Edit", edit_book_path(@book)
+          small< = link_to "Edit", edit_book_path(@book) if current_user?(@book.user)
           span< = favorite_link_to @book
       .row
         .small-9.columns
@@ -19,6 +19,7 @@
       - @book.tags.each do |tag|
         span.secondary.radius.label>
           = link_to tag, tag_books_path(tag.name)
+      = link_to "Edit Tags", edit_tags_book_path(@book)
     .description = simple_format(@book.description)
 
   .medium-3.columns
