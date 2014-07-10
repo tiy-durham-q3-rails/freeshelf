@@ -311,6 +311,7 @@ DEPENDENCIES
   rails-assets-mailcheck
   rails_12factor
   rails_best_practices
+  rake
   sass-rails (~> 4.0.3)
   selenium-webdriver
   simple_form (~> 3.0.2)

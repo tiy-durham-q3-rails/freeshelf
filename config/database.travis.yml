@@ -1,0 +1,13 @@
+test:
+  adapter: postgresql
+  encoding: unicode
+  username: postgres
+  database: travis_ci_test
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  username: postgres
+  database: travis_ci_development
+
+

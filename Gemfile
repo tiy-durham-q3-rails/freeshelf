@@ -28,11 +28,11 @@ gem 'rails-assets-mailcheck'
 gem 'simple_form', '~> 3.0.2'
 gem 'slim', '~> 2.0.3'
 gem 'sprig', '~> 0.1.6'
-gem 'unicorn', '~> 4.8.3'
 
 group :production do
   gem 'rails_12factor'
   gem 'postmark-rails'
+  gem 'unicorn', '~> 4.8.3'
 end
 
 group :development, :test do
@@ -47,6 +47,7 @@ group :development, :test do
   gem "pry-rails"
   gem 'quiet_assets'
   gem "rails_best_practices"
+  gem "rake"
   gem "selenium-webdriver"
   gem "wrong"
 end
