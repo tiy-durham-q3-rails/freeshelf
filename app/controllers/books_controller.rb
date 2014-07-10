@@ -43,7 +43,7 @@ class BooksController < ApplicationController
   private
 
   def find_book
-    @book = Book.includes(:tags).find(params[:id])
+    @book = Book.friendly.includes(:tags).find(params[:id])
   end
 
   def book_params

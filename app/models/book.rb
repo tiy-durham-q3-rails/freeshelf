@@ -8,6 +8,10 @@ class Book < ActiveRecord::Base
   mount_uploader :cover, CoverUploader
   mount_uploader :document, DocumentUploader
 
+  extend FriendlyId
+  friendly_id :title, use: :slugged
+  validates_presence_of :title, :slug
+
   def link
     if document?
       document.url
