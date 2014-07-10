@@ -1,5 +1,5 @@
 - if books.respond_to?(:current_page)
-  = paginate books
+  = paginate books, :window => 10, :outer_window => -1
 
 ul.large-block-grid-3.medium-block-grid-2.small-block-grid-1.book-list
   - books.each do |book|
@@ -16,3 +16,5 @@ ul.large-block-grid-3.medium-block-grid-2.small-block-grid-1.book-list
               = link_to tag, tag_books_path(tag.name)
         .description = simple_format(book.description)
 
+- if books.respond_to?(:current_page)
+  = paginate books
