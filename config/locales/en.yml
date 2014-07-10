@@ -25,3 +25,4 @@ en:
     pagination:
       first: "&laquo;"
       last: "&raquo;"
+      truncate: "&hellip;"

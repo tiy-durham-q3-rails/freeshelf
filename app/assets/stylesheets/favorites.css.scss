@@ -3,11 +3,11 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 a.favorite {
-  .fa-star-o {
-    color: black;
+  .fa-star {
+    color: #e0e0e0;
   }
 
-  .fa-star {
+  .fa-star.favorited {
     color: gold;
   }
 }
