@@ -1,3 +1,3 @@
-= simple_form_for @book do |form|
+= simple_form_for @book, url: edit_tags_book_path(@book), action: 'patch' do |form|
   = form.input :tag_list, :hint => "Separate tags with commas."
   = form.submit

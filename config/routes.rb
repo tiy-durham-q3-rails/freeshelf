@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :books, except: [:destroy] do
     get 'tags/:tag' => 'books#tags', :on => :collection, :as => :tag
     get 'tags' => 'books#edit_tags', :on => :member, :as => :edit_tags
+    patch ':id/tags' => 'books#update_tags', :on => :collection
   end
   resources :favorites, only: [:create, :destroy]
 

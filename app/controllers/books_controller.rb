@@ -1,6 +1,6 @@
 class BooksController < ApplicationController
   before_action :authorize, except: [:index, :show]
-  before_action :find_book, only: [:show, :edit, :edit_tags, :update]
+  before_action :find_book, only: [:show, :edit, :edit_tags, :update, :update_tags]
   before_action :correct_user, only: :edit
 
   def index
@@ -14,6 +14,14 @@ class BooksController < ApplicationController
   end
 
   def edit_tags
+  end
+
+  def update_tags
+    if @book.update(params.require(:book).permit(:tag_list))
+      redirect_to @book, notice: "Your tag list was updated."
+    else
+      render :edit_tags
+    end
   end
 
   def show
