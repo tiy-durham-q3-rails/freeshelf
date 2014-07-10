@@ -39,8 +39,14 @@ group :development, :test do
   gem "better_errors"
   gem "binding_of_caller"
   gem "brakeman"
+  gem 'capybara'
+  gem 'capybara-webkit'
+  gem 'database_cleaner'
   gem 'dotenv-rails'
+  gem 'launchy'
   gem "pry-rails"
   gem 'quiet_assets'
   gem "rails_best_practices"
+  gem "selenium-webdriver"
+  gem "wrong"
 end
