@@ -3,4 +3,4 @@
     h2
       | Books tagged with "#{@tag}"
       span< = favorite_link_to @tag
-    = render :partial => 'books', :object => @books
+    = render 'books', :books => @books

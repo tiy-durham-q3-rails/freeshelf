@@ -17,3 +17,4 @@
 .env
 .idea
 rails_best_practices_output.html
+brakeman.html

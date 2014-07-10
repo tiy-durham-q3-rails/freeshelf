@@ -1,4 +1,4 @@
-= simple_form_for @book, :html => {:multipart => true} do |form|
+= simple_form_for book, :html => {:multipart => true} do |form|
   = form.input :title
   = form.input :author
   = form.input :url
@@ -12,6 +12,6 @@
       = form.input :cover_cache, :as => :hidden
       = form.input :remote_cover_url, :as => :text
     .medium-6.columns
-      = image_tag(@book.cover_url) if @book.cover?
+      = image_tag(book.cover_url) if book.cover?
 
   = form.button :submit
