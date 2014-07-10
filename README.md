@@ -1,6 +1,7 @@
 # Freeshelf
 
-[![Build Status](https://travis-ci.org/tiy-durham-q3-rails/freeshelf.svg?branch=master)](https://travis-ci.org/tiy-durham-q3-rails/freeshelf)
+[![Build Status](https://travis-ci.org/tiy-durham-q3-rails/freeshelf.svg?branch=master)](https://travis-ci.org/tiy-durham-q3-rails/freeshelf) 
+[![Code Climate](https://codeclimate.com/github/tiy-durham-q3-rails/freeshelf.png)](https://codeclimate.com/github/tiy-durham-q3-rails/freeshelf)
 
 This Rails application provides a way to share and collect free programming books.
 
