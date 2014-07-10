@@ -43,6 +43,7 @@ group :development, :test do
   gem 'capybara-webkit'
   gem 'database_cleaner'
   gem 'dotenv-rails'
+  gem 'headless'
   gem 'launchy'
   gem "pry-rails"
   gem 'quiet_assets'

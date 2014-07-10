@@ -44,6 +44,8 @@ class ActionDispatch::IntegrationTest
   include Capybara::DSL
 
   def setup
+    @headless = Headless.new rescue nil
+    @headless.start unless @headless.nil?
     host! "127.0.0.1:#{Capybara.server_port}"
     DatabaseCleaner.start
   end
@@ -52,6 +54,7 @@ class ActionDispatch::IntegrationTest
     Capybara.reset_sessions!
     Capybara.use_default_driver
     DatabaseCleaner.clean
+    @headless.destroy unless @headless.nil?
   end
 
   def use_driver(driver)
