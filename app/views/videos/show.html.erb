@@ -15,10 +15,7 @@
   <%= @video.summary %>
 </p>
 
-<p>
-  <strong>Link:</strong>
-  <%= @video.link %>
-</p>
+<%=  video_embed(@video.link) %>
 
 <%= link_to 'Edit', edit_video_path(@video) %> |
 <%= link_to 'Back', videos_path %>
