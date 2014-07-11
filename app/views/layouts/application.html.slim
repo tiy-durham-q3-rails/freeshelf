@@ -27,6 +27,12 @@ html lang="en"
             li = link_to "Sign up", signup_path
             li = link_to "Login", login_path
           = content_for(:nav)
+        = link_to 'Sort By', '#', :data => {dropdown: 'drop1'}, :class => 'button tiny dropdown'
+        ul#drop1.f-dropdown data-dropdown-content=""
+          li.sort_link = link_to '# of Favorites', '#', :remote => true
+          li.sort_link = link_to 'Alphabetically', '#', :remote => true
+          li.sort_link = link_to 'Date Added', '#', :remote => true
+          li.sort_link = link_to 'Publication Date', '#', :remote => true
       .medium-10.columns
         .row
           = alert_box alert, "alert"
