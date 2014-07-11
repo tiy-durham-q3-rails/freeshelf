@@ -1,6 +1,10 @@
 module VideosHelper
-  def youtube_embed(youtube_url)
+  def video_embed(youtube_url)
     response = Oembedr.fetch(youtube_url)
-    response.body
+    response.body["html"].html_safe
+  end
+  def video_thumb(youtube_url)
+    response = Oembedr.fetch(youtube_url)
+    response.body["thumbnail_url"]
   end
 end
