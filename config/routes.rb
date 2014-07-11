@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+
+
   get 'signup' => 'users#new', as: 'signup'
   get 'login' => 'sessions#new', as: 'login'
   post 'login' => 'sessions#create'
@@ -11,5 +13,8 @@ Rails.application.routes.draw do
   end
   resources :favorites, only: [:create, :destroy]
 
+  resources :videos, except: [:destroy] do
+    get 'tags/:tag' => 'video#tags', :on => :collection, :as => :tag
+  end
   root 'books#index'
 end
