@@ -17,11 +17,8 @@ class BooksController < ApplicationController
   end
 
   def update_tags
-    if @book.update(params.require(:book).permit(:tag_list))
-      redirect_to @book, notice: "Your tag list was updated."
-    else
-      render :edit_tags
-    end
+    add_user_as_tagger
+    redirect_to @book, notice: "Your tag list was updated."
   end
 
   def show
@@ -35,6 +32,7 @@ class BooksController < ApplicationController
   def create
     @book = Book.new(book_params)
     if @book.save
+      add_user_as_tagger
       redirect_to @book, notice: "Your book was added."
     else
       render :new
@@ -46,6 +44,7 @@ class BooksController < ApplicationController
 
   def update
     if @book.update(book_params)
+      add_user_as_tagger
       redirect_to @book, notice: "Your book was updated."
     else
       render :edit
@@ -61,6 +60,10 @@ class BooksController < ApplicationController
   def correct_user
     @user = Book.find(params[:id]).user
     redirect_to root_url, notice: 'You can only edit a book that you have uploaded.' unless current_user?(@user)
+  end
+
+  def add_user_as_tagger
+    current_user.tag(@book, with: params[:user_tags], on: :tags)
   end
 
   def book_params
