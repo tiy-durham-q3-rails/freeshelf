@@ -11,4 +11,8 @@
           = f.input :password
         .medium-6.columns
           = f.input :password_confirmation
+      .row
+        .medium-6.columns
+          = f.label :locale, "Language"
+          = f.select :locale, [["English", "en"], ["Español", "es"]]
       = f.button :submit
