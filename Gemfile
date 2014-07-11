@@ -52,4 +52,7 @@ group :development, :test do
   gem "rake"
   gem "selenium-webdriver"
   gem "wrong"
+
+
+  gem 'oembedr'
 end
