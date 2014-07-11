@@ -5,6 +5,7 @@ class BooksController < ApplicationController
   def index
     @books = Book.includes(:tags).page params[:page]
   end
+  
 
   def tags
     @tag_name = params[:tag]
@@ -43,7 +44,7 @@ class BooksController < ApplicationController
   private
 
   def find_book
-    @book = Book.includes(:tags).find(params[:id])
+    @book = Book.friendly.includes(:tags).find(params[:id])
   end
 
   def book_params
