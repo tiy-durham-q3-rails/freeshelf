@@ -2,7 +2,7 @@
   <% @videos.each do |video|%>
       <li class="video">
           <div class="video-info">
-            <%= link_to video.title, video %>
+            <%= link_to video.title, video, class: "title" %>
             <%= link_to video.contributor, video %>
             <div class="tags">
               <% video.tags.each do |tag| %>
@@ -14,7 +14,7 @@
             </div>
 
           </div>
-            <%= image_tag video_thumb(video.link) %>
+            <%= image_tag video_thumb(video.link), class: "video_thumb"%>
           <% end %>
         </li>
 
