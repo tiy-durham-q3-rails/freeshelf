@@ -19,7 +19,7 @@
       - @book.tags.each do |tag|
         span.secondary.radius.label>
           = link_to tag, tag_books_path(tag.name)
-      = link_to "Edit Tags", edit_tags_book_path(@book)
+      = edit_tag_link_to(@book)
     .description = simple_format(@book.description)
 
   .medium-3.columns
