@@ -34,7 +34,7 @@ html lang="en"
           = alert_box notice
           = yield
   div id="settings-modal" class="reveal-modal" data-reveal=true
-    =="Custom user settings here"
+    == render :partial => 'users/settings'
     .close-reveal-modal
       =="&#215;"
 
