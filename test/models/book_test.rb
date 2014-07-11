@@ -1,7 +1,16 @@
 require 'test_helper'
 
 class BookTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  test "a book generates a slug from its title" do
+    book = Book.new(:title => "There and Back Again", :author => "Bilbo Baggins")
+    book.valid?
+    assert { book.slug == "there-and-back-again" }
+  end
+
+  test "a book generates a slug from its title and author if the title is not unique" do
+    Book.new(:title => "There and Back Again", :author => "Bilbo Baggins").save!
+    book = Book.new(:title => "There and Back Again", :author => "Pat Murphy")
+    book.valid?
+    assert { book.slug == "there-and-back-again-pat-murphy" }
+  end
 end
