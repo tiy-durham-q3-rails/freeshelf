@@ -11,7 +11,6 @@ ul.large-block-grid-3.medium-block-grid-2.small-block-grid-1.book-list
           - book.tags.each do |tag|
             span.secondary.radius.label>
               = link_to tag, tag_books_path(tag.name)
-          = edit_tag_link_to(book)
         .description = simple_format(book.description)
 
 - if books.respond_to?(:current_page)

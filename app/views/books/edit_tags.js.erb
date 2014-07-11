@@ -1,0 +1,5 @@
+$('#edit_tag_modal').html('<%= j render "edit_tags_form" %>').
+  append('<a class=\"close-reveal-modal\">&#215;</a>').
+  foundation('reveal', 'open');
+
+$('#edit-tags-form').attr('data-remote', 'true');

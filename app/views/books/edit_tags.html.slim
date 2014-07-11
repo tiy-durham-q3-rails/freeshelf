@@ -1,5 +1,1 @@
-= form_tag edit_tags_book_path(@book), method: 'patch'
-  = text_field_tag :user_tags, @book.tags_from(current_user)
-  small.hint Separate tags with commas.
-  = submit_tag
-
+= render 'edit_tags_form'

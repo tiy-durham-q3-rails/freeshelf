@@ -18,7 +18,10 @@ class BooksController < ApplicationController
 
   def update_tags
     add_user_as_tagger
-    redirect_to @book, notice: "Your tag list was updated."
+    respond_to do |format|
+      format.html { redirect_to @book, notice: "Your tag list was updated." }
+      format.js { @book = Book.find(params[:id]) }
+    end
   end
 
   def show
@@ -33,7 +36,10 @@ class BooksController < ApplicationController
     @book = Book.new(book_params)
     if @book.save
       add_user_as_tagger
-      redirect_to @book, notice: "Your book was added."
+      respond_to do |format|
+        format.html { redirect_to @book, notice: "Your book was added." }
+        format.js
+      end
     else
       render :new
     end
