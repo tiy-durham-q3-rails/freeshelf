@@ -1,21 +1,24 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="medium-9 columns">
+    <h2> <%= @video.title %>
+        <% if current_user %>
+            <%= link_to "Edit", edit_video_path %>
+        <% end %>
+    </h2>
+    <div class="row">
+      <div class="small-9 columns">
+        <span class="author"> <%= @video.contributor %></span>
+      </div>
 
-<p>
-  <strong>Title:</strong>
-  <%= @video.title %>
-</p>
-
-<p>
-  <strong>Contributor:</strong>
-  <%= @video.contributor %>
-</p>
-
-<p>
-  <strong>Summary:</strong>
-  <%= @video.summary %>
-</p>
-
-<%=  video_embed(@video.link) %>
-
-<%= link_to 'Edit', edit_video_path(@video) %> |
-<%= link_to 'Back', videos_path %>
+    </div>
+    <p class="tags">
+        <% @video.tags.each do |tag| %>
+            <%= link_to tag, tag_videos_path(tag.name) %>
+        <% end %>
+      <%= simple_format(@video.summary) %>
+    </p>
+  </div>
+  <div class="large-10 columns">
+    <%= video_embed(@video.link) %>
+  </div>
+</div>
