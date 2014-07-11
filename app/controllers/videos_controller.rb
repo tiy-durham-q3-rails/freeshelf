@@ -5,6 +5,7 @@ class VideosController < ApplicationController
   # GET /videos.json
   def index
     @videos = Video.all.includes(:tags).page params[:page]
+
   end
   def tag
     @tag_name = params[:tag]
