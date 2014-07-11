@@ -1,5 +1,5 @@
 class BooksController < ApplicationController
-  before_action :authorize, except: [:index, :show]
+  before_action :authorize, except: [:index, :show, :sort]
   before_action :find_book, only: [:show, :edit, :update]
 
   def index
@@ -37,6 +37,14 @@ class BooksController < ApplicationController
       redirect_to @book, notice: "Your book was updated."
     else
       render :edit
+    end
+  end
+
+  def sort
+    @books = Book.send(params[:scope]).page params[:page]
+    respond_to do |format|
+      format.js
+      format.html { redirect_to index }
     end
   end
 

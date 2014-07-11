@@ -8,6 +8,11 @@ class Book < ActiveRecord::Base
   mount_uploader :cover, CoverUploader
   mount_uploader :document, DocumentUploader
 
+  scope :alphabetically, -> { order(:title)  }
+  scope :added, -> { order(created_at: :desc) }
+  scope :published, -> { order(publish_year: :desc) }
+  scope :favorites, -> { order(:author) }
+
   def link
     if document?
       document.url

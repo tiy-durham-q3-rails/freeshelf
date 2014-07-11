@@ -29,10 +29,9 @@ html lang="en"
           = content_for(:nav)
         = link_to 'Sort By', '#', :data => {dropdown: 'drop1'}, :class => 'button tiny dropdown'
         ul#drop1.f-dropdown data-dropdown-content=""
-          li.sort_link = link_to '# of Favorites', '#', :remote => true
-          li.sort_link = link_to 'Alphabetically', '#', :remote => true
-          li.sort_link = link_to 'Date Added', '#', :remote => true
-          li.sort_link = link_to 'Publication Date', '#', :remote => true
+          li.sort_link = link_to_sort_by 'Alphabetically', 'alphabetically'
+          li.sort_link = link_to_sort_by 'Date Added', 'added'
+          li.sort_link = link_to_sort_by 'Publication Date', 'published'
       .medium-10.columns
         .row
           = alert_box alert, "alert"
