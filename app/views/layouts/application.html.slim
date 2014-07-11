@@ -20,7 +20,7 @@ html lang="en"
           li = link_to "Home", root_path
           li = link_to "Add a Book", new_book_path
           - if current_user
-            li = link_to "Suggested books", "#", remote: true
+            li = link_to "Suggested books", suggestions_path, remote: true
             #new-poll-modal.reveal-modal data-reveal=""
 
           li.divider

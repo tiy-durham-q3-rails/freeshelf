@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   post 'login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy', as: 'logout'
 
+  resources :suggestions, only: [:index]
   resources :password_resets, only: [:new, :create, :show, :update]
   resources :users, only: [:create]
   resources :books, except: [:destroy] do
