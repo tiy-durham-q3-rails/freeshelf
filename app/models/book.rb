@@ -8,10 +8,12 @@ class Book < ActiveRecord::Base
   mount_uploader :cover, CoverUploader
   mount_uploader :document, DocumentUploader
 
+  has_many :favorites, :as => :favoritable
+
   scope :alphabetically, -> { order(:title)  }
   scope :date_added, -> { order(created_at: :desc) }
   scope :year_published, -> { order(publish_year: :desc) }
-  scope :most_popular, -> { where { |a,b| a.favorite_count > b.favorite_count } }
+  scope :most_popular, -> { order(favorites_count: :desc)}
 
   def link
     if document?
@@ -19,9 +21,5 @@ class Book < ActiveRecord::Base
     else
       self.url
     end
-  end
-
-  def favorite_count
-    Favorite.where(:favoritable_type => "Book").where(:favoritable_id => id).count
   end
 end
