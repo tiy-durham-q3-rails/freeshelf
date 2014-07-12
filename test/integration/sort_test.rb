@@ -9,14 +9,12 @@ class SortTest < ActionDispatch::IntegrationTest
     assert { page.has_no_selector? "li.sort_link" }
     find("a.sort_dropdown").click
     assert { page.has_selector? "li.sort_link"}
-    assert { page.has_selector? "li#alpha_sort"}
-    assert { page.has_selector? "li#added_sort"}
-    assert { page.has_selector? "li#publi_sort"}
-    assert { page.has_selector? "li#favor_sort"}
+    assert { page.has_selector? "a#alphabetically"}
+    assert { page.has_selector? "a#date_added"}
+    assert { page.has_selector? "a#year_published"}
+    assert { page.has_selector? "a#most_popular"}
     assert { page.has_no_selector? "a.reverse_order"}
-    within("li#alpha_sort") do
-      find("a.sort_by").click
-    end
+    find("a#alphabetically").click
     assert { page.has_selector? "a.reverse_order"}
   end
 
@@ -25,9 +23,7 @@ class SortTest < ActionDispatch::IntegrationTest
     user = login
     visit books_path
     find("a.sort_dropdown").click
-    within("li#alpha_sort") do
-      find("a.sort_by").click
-    end
+    find("a#alphabetically").click
     alpha_titles = page.all('.title')
     assert_equal "AMyString", alpha_titles[0].text
     assert_equal "BMyString", alpha_titles[1].text
@@ -44,9 +40,7 @@ class SortTest < ActionDispatch::IntegrationTest
     user = login
     visit books_path
     find("a.sort_dropdown").click
-    within("li#publi_sort") do
-      find("a.sort_by").click
-    end
+    find("a#year_published").click
     publi_years = page.all('.publish-year')
     assert_equal "2014", publi_years[0].text
     assert_equal "2001", publi_years[1].text

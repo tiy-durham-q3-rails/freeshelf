@@ -1,7 +1,7 @@
 module BooksHelper
   def link_to_sort_by(scope)
       link_to scope.titleize, sort_path({ :scope => scope, :tag => params[:tag] }),
-              :remote => true, :class => 'sort_by'
+              :remote => true, :class => 'sort_by', :id => "#{scope}"
   end
 
   def link_to_reverse_order
