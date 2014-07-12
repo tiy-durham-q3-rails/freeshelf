@@ -11,9 +11,7 @@ class Book < ActiveRecord::Base
   scope :alphabetically, -> { order(:title)  }
   scope :date_added, -> { order(created_at: :desc) }
   scope :year_published, -> { order(publish_year: :desc) }
-  scope :favorites, -> { order(Favorite.where(:favoritable_type => "Book").where(:favoritable_id => :id).count) }
-
-  attr_accessor :favorite_count
+  scope :most_popular, -> { where { |a,b| a.favorite_count > b.favorite_count } }
 
   def link
     if document?
@@ -24,5 +22,6 @@ class Book < ActiveRecord::Base
   end
 
   def favorite_count
+    Favorite.where(:favoritable_type => "Book").where(:favoritable_id => id).count
   end
 end

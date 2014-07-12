@@ -27,8 +27,7 @@ html lang="en"
             li = link_to "Sign up", signup_path
             li = link_to "Login", login_path
           = content_for(:nav)
-        #sort_button
-          = render 'layouts/sort_list'
+          = yield :sort_function
       .medium-10.columns
         .row
           = alert_box alert, "alert"

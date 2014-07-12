@@ -13,6 +13,11 @@ class SortTest < ActionDispatch::IntegrationTest
     assert { page.has_selector? "li#added_sort"}
     assert { page.has_selector? "li#publi_sort"}
     assert { page.has_selector? "li#favor_sort"}
+    assert { page.has_no_selector? "a.reverse_order"}
+    within("li#alpha_sort") do
+      find("a.sort_by").click
+    end
+    assert { page.has_selector? "a.reverse_order"}
   end
 
   test "books can be sorted alphabetically" do
@@ -27,6 +32,11 @@ class SortTest < ActionDispatch::IntegrationTest
     assert_equal "AMyString", alpha_titles[0].text
     assert_equal "BMyString", alpha_titles[1].text
     assert_equal "CMyString", alpha_titles[2].text
+    find("a.reverse_order").click
+    alpha_titles = page.all('.title')
+    assert_equal "EMyString", alpha_titles[0].text
+    assert_equal "DMyString", alpha_titles[1].text
+    assert_equal "CMyString", alpha_titles[2].text
   end
 
   test "books can be sorted by date added" do
@@ -40,6 +50,11 @@ class SortTest < ActionDispatch::IntegrationTest
     publi_years = page.all('.publish-year')
     assert_equal "2014", publi_years[0].text
     assert_equal "2001", publi_years[1].text
+    assert_equal "1995", publi_years[2].text
+    find("a.reverse_order").click
+    publi_years = page.all('.publish-year')
+    assert_equal "1970", publi_years[0].text
+    assert_equal "1990", publi_years[1].text
     assert_equal "1995", publi_years[2].text
   end
 end
