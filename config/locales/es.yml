@@ -19,7 +19,7 @@
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
 
-en:
+es:
   hello: "Hello world"
   views:
     pagination:
@@ -29,8 +29,8 @@ en:
 
   layouts:
     application:
-      logout:     "Logout"
-      login:      "Login"
-      signup:     "Sign Up"
-      addbook:    "Add a book"
-      logged_as:  "Logged in as %{name}"
+      login:      "Ingresar"
+      logout:     "Salir"
+      signup:     "Registrarse"
+      add_book:   "Agregar un libro"
+      logged_as:  "Conectado como %{name}"

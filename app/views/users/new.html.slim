@@ -14,5 +14,5 @@
       .row
         .medium-6.columns
           = f.label :locale, "Language"
-          = f.select :locale, [["English", "en"], ["Español", "es"]]
-      = f.button :submit
+          = f.select :locale, [["English", "en"], ["Español", "es"]] #FIXME: change for the array of available languages
+      = f.button :submit 
