@@ -25,6 +25,7 @@ gem 'friendly_id', '~> 5.0.0'
 gem 'holder_rails'
 gem 'identicon', '~> 0.0.3'
 gem 'mini_magick', '~> 3.7.0'
+gem 'oembedr'
 gem 'rails-assets-mailcheck'
 gem 'simple_form', '~> 3.0.2'
 gem 'slim', '~> 2.0.3'
@@ -52,7 +53,4 @@ group :development, :test do
   gem "rake"
   gem "selenium-webdriver"
   gem "wrong"
-
-
-  gem 'oembedr'
 end

@@ -38,12 +38,4 @@ class VideosControllerTest < ActionController::TestCase
     patch :update, id: @video, video: { contributor: @video.contributor, link: @video.link, summary: @video.summary, title: @video.title }
     assert_redirected_to video_path(assigns(:video))
   end
-
-  test "should destroy video" do
-    assert_difference('Video.count', -1) do
-      delete :destroy, id: @video
-    end
-
-    assert_redirected_to videos_path
-  end
 end
