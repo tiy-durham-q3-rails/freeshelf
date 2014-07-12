@@ -3,37 +3,25 @@ namespace :books do
   desc 'Rake task to get books data'
   task :import => :environment do
     i = 0
-    f = File.open(File.join("lib/tasks", "freeprogrammingbooks.md"),"r").each_line do |line|
-      if line =~ /[#][#].* /x
-          tag = line.split(/#*/,2).last
-          puts "#{tag}"
-        #TODO - pull sub headings
-      elsif line =~ /^.*[\[].*/
-            title = line.split(/[\[\]]/,3)
-            title.shift
-            url = line.split(/[\(\)]/,3)
-            url.shift
-            puts "Title-#{i}: #{title.first}. url: #{url.first}"
-            i += 1
-
-      elsif line =~ /^[\s].*/
-        #puts "blank line"
-      else
-        #puts "lost header##########################"
+    books = File.open(File.join("lib/tasks", "freeprogrammingbooks-noindex.md"),"r") #TODO change bk to reg file vs noindex
+    books.each_line do |line|
+      attrs = :title, :url, :tag
+      @book = Book.create {
+      #TODO first ck if book title is already in db
+      #TODO rewrite to apply tag to subsequent books until there's a new tag
+      # if line =~ /[#][#].* /x #TODO - apply sub headings as 2nd tag
+      #   @book.tag = line.split(/#*/,2).last
+      # end
+      if line =~ /^[^#].*/
+          if line =~ /^.*[\[].*/
+            @title = line.split(/[\[\]]/,3).shift.first
+          end
+          if line =~ /^.*[\[].*/
+            @url = line.split(/[\(\)]/,3).shift.first
+          end
       end
+      }
     end
   end
-
-    #
-  # books = Book  #not sure what nba_search is. needs to be replaced but leaving for now
-  #   books.each do |i|
-  #     i.each do |hash|
-  #       @book = Book.new({
-  #         # Code to instantiate a book
-  #       })
-  #     @book.save
-  #     end
-  #   end
-  #   puts "#{Time.now} - Success!" #not sure we want this exactly, but prob a "completed" or something?
 
 end
