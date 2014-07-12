@@ -2,24 +2,30 @@ namespace :books do
 
   desc 'Rake task to get books data'
   task :read => :environment do
-    i = 0
-    f = File.open(File.join("lib/tasks", "freeprogrammingbooks.md"),"r").each_line do |line|
+    i = 1
+    f = File.open(File.join("lib/tasks", "freeprogrammingbooks-noindex-abbr.md"),"r").each_line do |line|
       if line =~ /[#][#].* /x
           tag = line.split(/#*/,2).last
+          puts "---------------------------"
           puts "#{tag}"
           puts "---------------------------"
 
         #TODO - pull sub headings
       elsif line =~ /^.*[\[].*/
-            title = line.split(/[\[\]]/,3)
+            title = line.split(/[\s]{0,}[\[\]]+/,3)
             title.shift
-            url = line.split(/[\(\)]/,3)
+            url = (title.last).split(/[\]\(\)]/,3) #TODO fix ones like cheatsheet(free)
             url.shift
-            puts "Title-#{i}: #{title.first}. url: #{url.first}"
+            authorextra = (url.last).split(/[\s]{1,}[-]{1}+[\s]{0,}+/,2)
+            authorextra.pop
+            #binding.pry
+            author = (authorextra.first).split(/[\s]{0,}[\(]+/,2)
+            author.shift
+            puts "Title-#{i}: #{title.first}. url: #{url.first}. author: #{author.first}."
             i += 1
 
       elsif line =~ /^[\s].*/
-        puts "blank line"
+        #puts "blank line"
       else
         puts "lost header##########################"
       end
