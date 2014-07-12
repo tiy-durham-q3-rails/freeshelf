@@ -1,0 +1,10 @@
+= simple_form_for(@video) do |f|
+  = f.error_notification
+  .form-inputs
+    = f.input :title
+    = f.input :creator
+    = f.input :description
+    = f.input :url
+    = f.input :tag_list, :hint => "Separate tags with commas."
+  .form-actions
+    = f.button :submit

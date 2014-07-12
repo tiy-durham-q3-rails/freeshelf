@@ -4,6 +4,7 @@ require 'rails/test_help'
 require 'capybara/rails'
 require "wrong"
 require "bcrypt"
+require 'capybara/poltergeist'
 
 module TestPasswordHelper
   def default_password_digest
@@ -34,6 +35,7 @@ class ActiveSupport::TestCase
 end
 
 Capybara.default_driver = :rack_test
+Capybara.javascript_driver = :poltergeist
 Capybara.server_port = 31337
 DatabaseCleaner.strategy = :truncation
 
@@ -55,6 +57,10 @@ class ActionDispatch::IntegrationTest
     Capybara.use_default_driver
     DatabaseCleaner.clean
     @headless.destroy unless @headless.nil?
+  end
+
+  def use_javascript
+    Capybara.current_driver = Capybara.javascript_driver
   end
 
   def use_driver(driver)
