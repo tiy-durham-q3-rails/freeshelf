@@ -27,11 +27,8 @@ html lang="en"
             li = link_to "Sign up", signup_path
             li = link_to "Login", login_path
           = content_for(:nav)
-        = link_to 'Sort By', '#', :data => {dropdown: 'drop1'}, :class => 'button tiny dropdown'
-        ul#drop1.f-dropdown data-dropdown-content=""
-          li.sort_link = link_to_sort_by 'Alphabetically', 'alphabetically'
-          li.sort_link = link_to_sort_by 'Date Added', 'added'
-          li.sort_link = link_to_sort_by 'Publication Date', 'published'
+        #sort_button
+          = render 'layouts/sort_list'
       .medium-10.columns
         .row
           = alert_box alert, "alert"

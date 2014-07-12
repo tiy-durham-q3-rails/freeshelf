@@ -1,6 +1,3 @@
 .row
-  h2
-    | Books tagged with "#{@tag}"
-    span< = favorite_link_to @tag
   .large-12.columns.book_content
     = render 'books', :books => @books

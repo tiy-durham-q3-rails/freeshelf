@@ -11,7 +11,9 @@ class Book < ActiveRecord::Base
   scope :alphabetically, -> { order(:title)  }
   scope :added, -> { order(created_at: :desc) }
   scope :published, -> { order(publish_year: :desc) }
-  scope :favorites, -> { order(:author) }
+  scope :favorites, -> { order(Favorite.where(:favoritable_type => "Book").where(:favoritable_id => :id).count) }
+
+  attr_accessor :favorite_count
 
   def link
     if document?
@@ -19,5 +21,8 @@ class Book < ActiveRecord::Base
     else
       self.url
     end
+  end
+
+  def favorite_count
   end
 end
