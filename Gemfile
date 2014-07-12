@@ -42,15 +42,14 @@ group :development, :test do
   gem "binding_of_caller"
   gem "brakeman"
   gem 'capybara'
-  gem 'capybara-webkit'
   gem 'database_cleaner'
   gem 'dotenv-rails'
   gem 'headless'
   gem 'launchy'
+  gem 'poltergeist'
   gem "pry-rails"
   gem 'quiet_assets'
   gem "rails_best_practices"
   gem "rake"
-  gem "selenium-webdriver"
   gem "wrong"
 end

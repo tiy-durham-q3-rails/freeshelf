@@ -27,6 +27,14 @@ rake db:create db:migrate db:seed
 
 After that, you can run `rails server` to start the server or `rails console` for a REPL.
 
+## Testing
+
+You must have PhantomJS installed to run the tests. On OS X with Homebrew, run:
+
+```sh
+brew install phantomjs
+```
+
 ## Contributing
 
 If you are new to using git and GitHub, follow these directions:
