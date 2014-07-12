@@ -9,9 +9,10 @@
       .row
         .small-9.columns
           p
-            span.creator
-              ' #{@book.creator},
-            span.year-created = @book.year_created
+            span.creator = @book.creator
+            - if @book.year_created
+              ' ,
+              span.year-created = @book.year_created
         .small-3.columns
           p.right
             = link_to "Link to book", @book.url
@@ -24,8 +25,10 @@
   .medium-3.columns
     .book-cover
       = image_tag @book.cover_url if @book.cover?
-.row
-  .columns.related-books
-    h3 Related books
-    = render 'books', :books => @related_books
+
+- if @related_books.present?
+  .row
+    .columns.related-books
+      h3 Related books
+      = render 'books', :books => @related_books
 

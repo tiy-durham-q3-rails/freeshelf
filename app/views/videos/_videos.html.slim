@@ -1,0 +1,16 @@
+ul.large-block-grid-3.medium-block-grid-2.small-block-grid-1.content-list
+  - videos.each do |video|
+    li.video
+      .content-info
+        .title = link_to video.title, video
+        .creator = video.creator
+        .year-created = video.year_created
+        .tags
+          - video.tags.each do |tag|
+            span.secondary.radius.label>
+              = link_to tag, tag_videos_path(tag.name)
+        .description = simple_format(video.description)
+      = image_tag video_thumb(video.url), class: "video-thumb"
+
+  - if videos.respond_to?(:current_page)
+    = paginate videos, :outer_window => 2
