@@ -1,27 +1,29 @@
 namespace :books do
 
   desc 'Rake task to get books data'
-  task :import => :environment do
+  task :read => :environment do
     i = 0
     f = File.open(File.join("lib/tasks", "freeprogrammingbooks.md"),"r").each_line do |line|
       if line =~ /[#][#].* /x
-          puts line.split
+          tag = line.split(/#*/,2).last
+          puts "#{tag}"
+          puts "---------------------------"
 
         #TODO - pull sub headings
       elsif line =~ /^.*[\[].*/
-            puts "imeabook #{i}"
+            title = line.split(/[\[\]]/,3)
+            title.shift
+            url = line.split(/[\(\)]/,3)
+            url.shift
+            puts "Title-#{i}: #{title.first}. url: #{url.first}"
             i += 1
+
       elsif line =~ /^[\s].*/
         puts "blank line"
       else
         puts "lost header##########################"
       end
-    # puts "#{f.readline(1)}"
-      #f= File.open("#{Rails.root}/app/views/static/#{ params[:page] }.md", &:readline)
-      # f = File.open("/lib/tasks/freeprogrammingbooks.md", 'r') do |file|
-      #   file.readlines()
-      #   binding.pry
-      end
+    end
   end
 
     #
