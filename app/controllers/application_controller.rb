@@ -10,4 +10,8 @@ class ApplicationController < ActionController::Base
   def authorize
     redirect_to login_url, alert: "You must log in to do that." if current_user.nil?
   end
+
+  def authenticate_admin_user!
+    authorize
+  end
 end
