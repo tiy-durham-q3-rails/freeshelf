@@ -79,7 +79,7 @@ ActiveRecord::Schema.define(version: 20140711192452) do
     t.string   "password_digest"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.datetime "last_looked_at_suggestions"
+    t.datetime "last_looked_at_suggestions", default: '2014-07-12 21:20:35'
   end
 
 end
