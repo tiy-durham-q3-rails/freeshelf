@@ -42,9 +42,13 @@ class BooksController < ApplicationController
 
   def sort
     @books = Book.send(params[:scope]).page params[:page]
+    @sort_name = params[:scope].humanize
     unless params[:tag].nil?
       @tag = ActsAsTaggableOn::Tag.find(params[:tag])
       @books = @books.includes(:tags).tagged_with(@tag).page params[:page]
+    end
+    if params[:order] == 'asc'
+      @books = @books.reverse_order
     end
     respond_to do |format|
       format.js

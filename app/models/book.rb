@@ -9,8 +9,8 @@ class Book < ActiveRecord::Base
   mount_uploader :document, DocumentUploader
 
   scope :alphabetically, -> { order(:title)  }
-  scope :added, -> { order(created_at: :desc) }
-  scope :published, -> { order(publish_year: :desc) }
+  scope :date_added, -> { order(created_at: :desc) }
+  scope :year_published, -> { order(publish_year: :desc) }
   scope :favorites, -> { order(Favorite.where(:favoritable_type => "Book").where(:favoritable_id => :id).count) }
 
   attr_accessor :favorite_count
