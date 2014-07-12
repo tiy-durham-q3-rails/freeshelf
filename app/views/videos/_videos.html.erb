@@ -3,18 +3,18 @@
     <li class="video">
       <div class="video-info">
         <%= link_to video.title, video, class: "title" %>
-        <%= link_to video.contributor, video %>
+        <%= link_to video.creator, video %>
         <div class="tags">
           <% video.tags.each do |tag| %>
               <span class="secondary radius label">
                 <%= link_to tag, tag_videos_path(tag.name) %>
               </span>
           <% end %>
-          <%= simple_format(video.summary) %>
+          <%= simple_format(video.description) %>
         </div>
 
       </div>
-      <%= image_tag video_thumb(video.link), class: "video_thumb" %>
+      <%= image_tag video_thumb(video.url), class: "video_thumb" %>
   <% end %>
   </li>
 </ul>

@@ -2,12 +2,12 @@
 
 one:
   title: MyString
-  author: MyString
-  publish_year: 1
+  creator: MyString
+  year_created: 2014
   url: MyString
 
 two:
   title: MyString
-  author: MyString
-  publish_year: 1
+  creator: MyString
+  year_created: 2014
   url: MyString

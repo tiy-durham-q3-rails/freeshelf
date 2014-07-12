@@ -5,8 +5,8 @@ ul.large-block-grid-3.medium-block-grid-2.small-block-grid-1.book-list
         .book-cover = link_to image_tag(book.cover.thumb.url), book
       .book-info
         .title = link_to book.title, book
-        .author = book.author
-        .publish-year = book.publish_year
+        .creator = book.creator
+        .year-created = book.year_created
         .tags
           - book.tags.each do |tag|
             span.secondary.radius.label>

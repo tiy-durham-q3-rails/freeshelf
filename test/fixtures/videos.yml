@@ -2,12 +2,14 @@
 
 one:
   title: MyString
-  contributor: MyString
-  summary: MyString
-  link: MyString
+  creator: MyString
+  description: MyString
+  url: http://www.youtube.com/watch?v=kPRA0W1kECg
+  year_created: 2014
 
 two:
   title: MyString
-  contributor: MyString
-  summary: MyString
-  link: MyString
+  creator: MyString
+  description: MyString
+  url: http://www.youtube.com/watch?v=C2vgICfQawE
+  year_created: 2014

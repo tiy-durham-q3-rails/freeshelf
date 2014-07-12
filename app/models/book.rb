@@ -4,23 +4,14 @@ class Book < ActiveRecord::Base
 
   validates :title, presence: true
   validates :slug, presence: true
-  validates :author, presence: true
+  validates :creator, presence: true
 
   mount_uploader :cover, CoverUploader
-  mount_uploader :document, DocumentUploader
 
   extend FriendlyId
   friendly_id :slug_candidates, :use => :slugged
 
   def slug_candidates
-    [:title, [:title, :author]]
-  end
-
-  def link
-    if document?
-      document.url
-    else
-      self.url
-    end
+    [:title, [:title, :creator]]
   end
 end

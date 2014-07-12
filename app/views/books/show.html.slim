@@ -9,12 +9,12 @@
       .row
         .small-9.columns
           p
-            span.author
-              ' #{@book.author},
-            span.publish-year = @book.publish_year
+            span.creator
+              ' #{@book.creator},
+            span.year-created = @book.year_created
         .small-3.columns
           p.right
-            = link_to "Link to book", @book.link
+            = link_to "Link to book", @book.url
     p.tags
       - @book.tags.each do |tag|
         span.secondary.radius.label>

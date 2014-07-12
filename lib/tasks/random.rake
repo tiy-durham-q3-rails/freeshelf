@@ -28,8 +28,8 @@ namespace :random do
 
       Book.create!(:title => title,
                    :url => Faker::Internet.url,
-                   :author => Faker::Name.name,
-                   :publish_year => 2014 - Random.rand(0..30),
+                   :creator => Faker::Name.name,
+                   :year_created => 2014 - Random.rand(0..30),
                    :tag_list => tag_list,
                    :cover => File.new(tempfile),
                    :description => Faker::Lorem.paragraph)
