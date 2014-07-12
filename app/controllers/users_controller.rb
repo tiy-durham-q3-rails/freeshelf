@@ -13,6 +13,10 @@ class UsersController < ApplicationController
     end
   end
 
+  def send_mail(user, slug, tag)
+    TagMailer.deliver_new_tag_alert(user, slug, tag)
+  end
+
   private
 
   def user_params
