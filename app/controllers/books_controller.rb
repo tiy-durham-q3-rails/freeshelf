@@ -5,7 +5,6 @@ class BooksController < ApplicationController
   def index
     @books = Book.includes(:tags).page params[:page]
   end
-  
 
   def tags
     @tag_name = params[:tag]
@@ -23,6 +22,7 @@ class BooksController < ApplicationController
 
   def create
     @book = Book.new(book_params)
+    
     if @book.save
       redirect_to @book, notice: "Your book was added."
     else

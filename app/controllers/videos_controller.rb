@@ -1,8 +1,9 @@
 class VideosController < ApplicationController
-  before_action :set_video, only: [:show, :edit, :update, :destroy]
+  before_action :authorize, except: [:index, :show]
+  before_action :find_video, only: [:show, :edit, :update]
 
   def index
-    @videos = Video.all.includes(:tags).page params[:page]
+    @videos = Video.includes(:tags).page params[:page]
   end
 
   def tag
@@ -19,22 +20,22 @@ class VideosController < ApplicationController
     @video = Video.new
   end
 
-  def edit
-  end
-
   def create
     @video = Video.new(video_params)
 
     if @video.save
-      redirect_to @video, notice: 'Video was successfully created.'
+      redirect_to @video, notice: 'Your video was created.'
     else
       render :new
     end
   end
 
+  def edit
+  end
+
   def update
     if @video.update(video_params)
-      redirect_to @video, notice: 'Video was successfully updated.'
+      redirect_to @video, notice: 'Your video was updated.'
     else
       render :edit
     end
@@ -42,8 +43,8 @@ class VideosController < ApplicationController
 
   private
 
-  def set_video
-    @video = Video.find(params[:id])
+  def find_video
+    @video = Video.friendly.includes(:tags).find(params[:id])
   end
 
   def video_params

@@ -3,6 +3,7 @@ class Book < ActiveRecord::Base
   acts_as_taggable
 
   validates :title, presence: true
+  validates :slug, presence: true
   validates :author, presence: true
 
   mount_uploader :cover, CoverUploader
@@ -10,7 +11,6 @@ class Book < ActiveRecord::Base
 
   extend FriendlyId
   friendly_id :slug_candidates, :use => :slugged
-  validates_presence_of :title, :slug
 
   def slug_candidates
     [:title, [:title, :author]]
