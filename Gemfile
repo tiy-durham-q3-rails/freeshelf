@@ -40,15 +40,19 @@ end
 group :development, :test do
   gem "better_errors"
   gem "binding_of_caller"
-  gem "brakeman"
-  gem 'capybara'
-  gem 'database_cleaner'
+  gem "brakeman", :require => false
   gem 'dotenv-rails'
-  gem 'launchy'
-  gem 'poltergeist'
   gem "pry-rails"
   gem 'quiet_assets'
-  gem "rails_best_practices"
-  gem "rake"
-  gem "wrong"
+  gem "rails_best_practices", :require => false
+  gem "rake", :require => false
+end
+
+group :test do
+  gem 'capybara', :require => false
+  gem 'database_cleaner'
+  gem 'launchy'
+  gem 'poltergeist'
+  gem 'simplecov', '~> 0.7.1', :require => false
+  gem "wrong", :require => false
 end
