@@ -1,30 +1,30 @@
 namespace :books do
-
   desc 'Rake task to get books data'
   task :read => :environment do
     i = 1
-    f = File.open(File.join("lib/tasks", "freeprogrammingbooks-noindex-abbr.md"),"r").each_line do |line|
-      if line =~ /[#][#].* /x
-          tag = line.split(/#*/,2).last
-          puts "---------------------------"
-          puts "#{tag}"
-          puts "---------------------------"
+    f = File.open(File.join("lib/tasks", "freeprogrammingbooks.md"),"r").each_line do |line|
+       #TODO ck The Scheme Programming...Programming Windows 8..."Also see...""
+      if line =~  /[#][#]*.* /x  || line =~ /^[\s]{0,}+[\*]+[\s]{1,}+(?!\[)/
+        tag = line.split(/[ [#*][[\s]{0,}[\*]{1}+[\s]{1,}]]+/,2).last
+        puts "---------------------------"
+        puts "#{tag}"
+        puts "---------------------------"
+      elsif line =~ /^[\s]{0,}[\*]+[\s]{1,}+[\[].*[\]]+[\s]{0,}+[\(](?!#).*/
 
-        #TODO - pull sub headings
-      elsif line =~ /^.*[\[].*/
-            title = line.split(/[\s]{0,}[\[\]]+/,3)
-            title.shift
-            url = (title.last).split(/[\]\(\)]/,3) #TODO fix ones like cheatsheet(free)
-            url.shift
-
-            authorextra = (url.last).split(/[\s]{1,}+[-]{1}+[\s]{0,}+/)
-            author = (authorextra.last).split(/[\s]{0,}[\(\[]+/,2)
-            #TODO remove \n's from lines. could splice last two chars if \n
-               #(author.first).gsub!(/.{2}$/,'')
-            binding.pry
-            puts "Title-#{i}: #{title.first}. url: #{url.first}. author: #{author.first}."
-            i += 1
-
+        #TODO find javacript framworks - the line below it. line above tizen header. line above linux header.
+        title = line.split(/[\s]{0,}[\[\]]+/,3)
+        title.shift
+        url = (title.last).split(/[\]\(\)]/,3)
+        url.shift
+        authorextra = (url.last).split(/[\s]{0,}+[-]{1}+[\s]{0,}+[\w]+/)
+        author2 = (authorextra.last).split(/[\s]{0,}[\(\[]+/)
+      # binding.pry
+        author = (author2.first).split(/^\w(?=[\\n])+/ || /^.*[\\n]+/)
+          #TODO remove \n's from authors w no trailing chars.
+              # TODO splice last two chars if matches \n? -- #(author.first).gsub!(/.{2}$/,'')
+          #TODO fix authors like "atariarchives..." & ", University..."
+        puts "Title-#{i}: #{title.first}. url: #{url.first}. author: #{author.first}."
+        i += 1
       elsif line =~ /^[\s].*/
         #puts "blank line"
       else
@@ -32,17 +32,5 @@ namespace :books do
       end
     end
   end
-
-    #
-  # books = Book  #not sure what nba_search is. needs to be replaced but leaving for now
-  #   books.each do |i|
-  #     i.each do |hash|
-  #       @book = Book.new({
-  #         # Code to instantiate a book
-  #       })
-  #     @book.save
-  #     end
-  #   end
-  #   puts "#{Time.now} - Success!" #not sure we want this exactly, but prob a "completed" or something?
-
 end
+
