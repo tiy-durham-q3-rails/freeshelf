@@ -39,15 +39,12 @@ Capybara.javascript_driver = :poltergeist
 Capybara.server_port = 31337
 DatabaseCleaner.strategy = :truncation
 
-
 class ActionDispatch::IntegrationTest
   # Make the Capybara DSL available in all integration tests
   self.use_transactional_fixtures = false
   include Capybara::DSL
 
   def setup
-    @headless = Headless.new rescue nil
-    @headless.start unless @headless.nil?
     host! "127.0.0.1:#{Capybara.server_port}"
     DatabaseCleaner.start
   end
@@ -56,7 +53,6 @@ class ActionDispatch::IntegrationTest
     Capybara.reset_sessions!
     Capybara.use_default_driver
     DatabaseCleaner.clean
-    @headless.destroy unless @headless.nil?
   end
 
   def use_javascript

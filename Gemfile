@@ -44,7 +44,6 @@ group :development, :test do
   gem 'capybara'
   gem 'database_cleaner'
   gem 'dotenv-rails'
-  gem 'headless'
   gem 'launchy'
   gem 'poltergeist'
   gem "pry-rails"
