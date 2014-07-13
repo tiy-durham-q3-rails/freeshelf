@@ -1,6 +1,6 @@
 namespace :books do
   desc 'Rake task to get books data'
-  task :read => :environment do
+  task :readlocal => :environment do
     i = 1
     f = File.open(File.join("lib/tasks", "freeprogrammingbooks.md"),"r").each_line do |line|
       if line =~  /[#][#]*.* /x  || line =~ /^[\s]{0,}+[\*]+[\s]{1,}+(?!\[)/
@@ -16,7 +16,7 @@ namespace :books do
         url = (title.last).split(/[[\]] [\(] [\)*]]/,3)
         binding.pry
         url.shift
-        authorextra = (url.last).split(/[\s]{0,}+[-]{1}+[\s]{0,}+[\w]+/)
+        authorextra = (url.last).split(/[\s]{0,}+[-]{1}+[\s]{0,}+[\w]+.*/)
         author2 = (authorextra.last).split(/[\s]{0,}[\(\[]+/)
         # binding.pry
         author = (author2.first).split(/^\w(?=[\\n])+/ || /^.*[\\n]+/)
@@ -33,5 +33,4 @@ namespace :books do
       end
     end
   end
-end
 end
