@@ -51,6 +51,7 @@ end
 group :test do
   gem 'capybara', :require => false
   gem 'database_cleaner'
+  gem 'headless', :require => false
   gem 'launchy'
   gem 'poltergeist'
   gem 'simplecov', '~> 0.7.1', :require => false

@@ -7,6 +7,7 @@ require File.expand_path('../../config/environment', __FILE__)
 require 'rails/test_help'
 require 'capybara/rails'
 require 'capybara/poltergeist'
+require "headless"
 require "wrong"
 require "bcrypt"
 
@@ -71,6 +72,15 @@ class ActionDispatch::IntegrationTest
 
   def use_driver(driver)
     Capybara.current_driver = driver
+  end
+
+  def use_selenium
+    Capybara.current_driver = :selenium
+    if block_given?
+      Headless.ly do
+        yield
+      end
+    end
   end
 
   def login(user = nil, password = nil)
