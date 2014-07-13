@@ -125,7 +125,6 @@ GEM
       activerecord (>= 4.0.0)
     haml (4.0.5)
       tilt
-    headless (1.0.2)
     highline (1.6.21)
     hike (1.2.3)
     holder_rails (2.3.2)
@@ -308,7 +307,6 @@ DEPENDENCIES
   font-awesome-sass (~> 4.1.0)
   foundation-rails (~> 5.3.0)
   friendly_id (~> 5.0.0)
-  headless
   holder_rails
   identicon (~> 0.0.3)
   jbuilder (~> 2.0)
