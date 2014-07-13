@@ -1,16 +1,27 @@
 class BooksController < ApplicationController
   before_action :authorize, except: [:index, :show]
-  before_action :find_book, only: [:show, :edit, :update]
+  before_action :find_book, only: [:show, :edit, :edit_tags, :update, :update_tags]
+  before_action :correct_user, only: :edit
 
   def index
     @books = Book.includes(:tags)
   end
-  
 
   def tags
     @tag_name = params[:tag]
-    @tag = ActsAsTaggableOn::Tag.find_by_name(@tag_name)
+    @tag = ActsAsTaggableOn::Tag.where(:name => @tag_name).first_or_create
     @books = Book.includes(:tags).tagged_with(@tag).page params[:page]
+  end
+
+  def edit_tags
+  end
+
+  def update_tags
+    add_user_as_tagger
+    respond_to do |format|
+      format.html { redirect_to @book, notice: "Your tag list was updated." }
+      format.js
+    end
   end
 
   def show
@@ -23,8 +34,13 @@ class BooksController < ApplicationController
 
   def create
     @book = Book.new(book_params)
+
     if @book.save
-      redirect_to @book, notice: "Your book was added."
+      add_user_as_tagger
+      respond_to do |format|
+        format.html { redirect_to @book, notice: "Your book was added." }
+        format.js
+      end
     else
       render :new
     end
@@ -35,6 +51,7 @@ class BooksController < ApplicationController
 
   def update
     if @book.update(book_params)
+      add_user_as_tagger
       redirect_to @book, notice: "Your book was updated."
     else
       render :edit
@@ -47,8 +64,16 @@ class BooksController < ApplicationController
     @book = Book.friendly.includes(:tags).find(params[:id])
   end
 
+  def correct_user
+    redirect_to root_url, notice: 'You can only edit a book that you have uploaded.' unless current_user?(@book.user)
+  end
+
+  def add_user_as_tagger
+    current_user.tag(@book, with: params[:user_tags], on: :tags)
+  end
+
   def book_params
-    params.require(:book).permit(:title, :url, :publish_year, :author, :description, :cover, :cover_cache,
-                                 :remote_cover_url, :document, :tag_list)
+    params.require(:book).permit(:title, :url, :year_created, :creator, :description, :cover, :cover_cache,
+                                 :remote_cover_url, :document, :tag_list, :user_id)
   end
 end
