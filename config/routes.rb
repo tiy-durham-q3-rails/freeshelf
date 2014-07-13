@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   resources :videos, except: [:destroy] do
     get 'tags/:tag' => 'video#tags', :on => :collection, :as => :tag
   end
+  get 'sort' => 'books#sort'
   resources :favorites, only: [:create, :destroy]
 
   root 'books#index'
