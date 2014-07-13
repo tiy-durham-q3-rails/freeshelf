@@ -16,11 +16,12 @@ namespace :books do
             title.shift
             url = (title.last).split(/[\]\(\)]/,3) #TODO fix ones like cheatsheet(free)
             url.shift
-            authorextra = (url.last).split(/[\s]{1,}[-]{1}+[\s]{0,}+/,2)
-            authorextra.pop
-            #binding.pry
-            author = (authorextra.first).split(/[\s]{0,}[\(]+/,2)
-            author.shift
+
+            authorextra = (url.last).split(/[\s]{1,}+[-]{1}+[\s]{0,}+/)
+            author = (authorextra.last).split(/[\s]{0,}[\(\[]+/,2)
+            #TODO remove \n's from lines. could splice last two chars if \n
+               #(author.first).gsub!(/.{2}$/,'')
+            binding.pry
             puts "Title-#{i}: #{title.first}. url: #{url.first}. author: #{author.first}."
             i += 1
 

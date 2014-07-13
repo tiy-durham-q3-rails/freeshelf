@@ -22,6 +22,7 @@ class BooksController < ApplicationController
 
   def create
     @book = Book.new(book_params)
+
     if @book.save
       redirect_to @book, notice: "Your book was added."
     else
@@ -43,11 +44,11 @@ class BooksController < ApplicationController
   private
 
   def find_book
-    @book = Book.includes(:tags).find(params[:id])
+    @book = Book.friendly.includes(:tags).find(params[:id])
   end
 
   def book_params
-    params.require(:book).permit(:title, :url, :publish_year, :author, :description, :cover, :cover_cache,
-                                 :remote_cover_url, :document, :tag_list)
+    params.require(:book).permit(:title, :url, :year_created, :creator, :description,
+                                 :cover, :cover_cache, :remote_cover_url, :tag_list)
   end
 end

@@ -11,22 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140709145421) do
+ActiveRecord::Schema.define(version: 20140712020922) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "books", force: true do |t|
     t.string   "title"
-    t.integer  "publish_year"
+    t.integer  "year_created"
     t.string   "url"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "author"
+    t.string   "creator"
     t.text     "description"
     t.string   "cover"
-    t.string   "document"
+    t.string   "slug"
   end
+
+  add_index "books", ["year_created"], name: "index_books_on_year_created", using: :btree
 
   create_table "favorites", force: true do |t|
     t.integer  "user_id"
@@ -38,6 +40,19 @@ ActiveRecord::Schema.define(version: 20140709145421) do
 
   add_index "favorites", ["favoritable_id", "favoritable_type"], name: "index_favorites_on_favoritable_id_and_favoritable_type", using: :btree
   add_index "favorites", ["user_id"], name: "index_favorites_on_user_id", using: :btree
+
+  create_table "friendly_id_slugs", force: true do |t|
+    t.string   "slug",                      null: false
+    t.integer  "sluggable_id",              null: false
+    t.string   "sluggable_type", limit: 50
+    t.string   "scope"
+    t.datetime "created_at"
+  end
+
+  add_index "friendly_id_slugs", ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true, using: :btree
+  add_index "friendly_id_slugs", ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type", using: :btree
+  add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id", using: :btree
+  add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
 
   create_table "password_resets", force: true do |t|
     t.integer  "user_id"
@@ -75,5 +90,18 @@ ActiveRecord::Schema.define(version: 20140709145421) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "videos", force: true do |t|
+    t.string   "title"
+    t.string   "creator"
+    t.string   "description"
+    t.string   "url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "slug"
+    t.integer  "year_created"
+  end
+
+  add_index "videos", ["year_created"], name: "index_videos_on_year_created", using: :btree
 
 end

@@ -18,7 +18,10 @@ html lang="en"
       .medium-2.columns
         ul.main-nav
           li = link_to "Home", root_path
+          li = link_to "Videos", videos_path
           li = link_to "Add a Book", new_book_path
+          li = link_to "Add a Video", new_video_path
+
           li.divider
           - if current_user
             li = link_to "Logged in as #{current_user.name}", "#"
