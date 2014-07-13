@@ -3,7 +3,7 @@ class BooksController < ApplicationController
   before_action :find_book, only: [:show, :edit, :update]
 
   def index
-    @books = Book.includes(:tags).page params[:page]
+    @books = Book.includes(:tags)
   end
   
 
