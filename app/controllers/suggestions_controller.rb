@@ -12,6 +12,9 @@ class SuggestionsController < ApplicationController
         end # if
       end # each recently_update_book
     end # each favorite_tag
+    h = Hash.new(0)
+    suggest.each{ |e| h[e] += 1 }
+    suggest = h.collect { |k, v| k }
     suggest
-  end
+  end # find_user_suggestions
 end
