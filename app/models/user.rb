@@ -11,6 +11,8 @@ class User < ActiveRecord::Base
   has_many :favorite_tags, :through => :favorites,
            :source => :favoritable, :source_type => "ActsAsTaggableOn::Tag"
 
+  ROLES = %w(admin_user)
+
   def confirm_password_present
     if password.blank?
       errors.add(:password, "must be present")

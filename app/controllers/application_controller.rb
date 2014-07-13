@@ -14,8 +14,4 @@ class ApplicationController < ActionController::Base
   def authenticate_admin_user!
     authorize
   end
-
-  def AdminUser
-    AdminUser.create!(:email => 'admin@example.com', :password => 'password', :password_confirmation => 'password')
-  end
 end
