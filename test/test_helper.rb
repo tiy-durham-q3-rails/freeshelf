@@ -35,6 +35,7 @@ class ActiveSupport::TestCase
       user = users(:one)
     end
     @request.env["rack.session"]["user_id"] = user.id
+    user
   end
 end
 
