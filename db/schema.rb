@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140712020922) do
+ActiveRecord::Schema.define(version: 20140713190606) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,20 +27,11 @@ ActiveRecord::Schema.define(version: 20140712020922) do
     t.string   "cover"
     t.string   "slug"
     t.integer  "user_id"
+    t.integer  "favorites_count", default: 0
   end
 
   add_index "books", ["user_id"], name: "index_books_on_user_id", using: :btree
   add_index "books", ["year_created"], name: "index_books_on_year_created", using: :btree
-
-  create_table "comments", force: true do |t|
-    t.string   "commenter"
-    t.text     "body"
-    t.integer  "book_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "comments", ["book_id"], name: "index_comments_on_book_id", using: :btree
 
   create_table "favorites", force: true do |t|
     t.integer  "user_id"
@@ -90,7 +81,8 @@ ActiveRecord::Schema.define(version: 20140712020922) do
 
   create_table "tags", force: true do |t|
     t.string  "name"
-    t.integer "taggings_count", default: 0
+    t.integer "taggings_count",  default: 0
+    t.integer "favorites_count", default: 0
   end
 
   add_index "tags", ["name"], name: "index_tags_on_name", unique: true, using: :btree
@@ -112,6 +104,7 @@ ActiveRecord::Schema.define(version: 20140712020922) do
     t.datetime "updated_at"
     t.string   "slug"
     t.integer  "year_created"
+    t.integer  "favorites_count"
   end
 
   add_index "videos", ["year_created"], name: "index_videos_on_year_created", using: :btree

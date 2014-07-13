@@ -1,5 +1,5 @@
 class BooksController < ApplicationController
-  before_action :authorize, except: [:index, :show]
+  before_action :authorize, only: [:new, :create, :edit, :edit_tags, :update, :update_tags]
   before_action :find_book, only: [:show, :edit, :edit_tags, :update, :update_tags]
   before_action :correct_user, only: :edit
 
@@ -55,6 +55,22 @@ class BooksController < ApplicationController
       redirect_to @book, notice: "Your book was updated."
     else
       render :edit
+    end
+  end
+
+  def sort
+    @books = Book.send(params[:scope]).page params[:page]
+    @sort_name = params[:scope].titleize
+    unless params[:tag].nil?
+      @tag = ActsAsTaggableOn::Tag.find_by_name(params[:tag])
+      @books = @books.includes(:tags).tagged_with(@tag).page params[:page]
+    end
+    if params[:order] == 'asc'
+      @books = @books.reverse_order
+    end
+    respond_to do |format|
+      format.js
+      format.html
     end
   end
 

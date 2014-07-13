@@ -39,8 +39,13 @@ class ActiveSupport::TestCase
   end
 end
 
+Capybara.register_driver :poltergeist_debug do |app|
+  Capybara::Poltergeist::Driver.new(app, :inspector => true)
+end
+
 Capybara.default_driver = :rack_test
 Capybara.javascript_driver = :poltergeist
+# Capybara.javascript_driver = :poltergeist_debug
 Capybara.server_port = 31337
 DatabaseCleaner.strategy = :truncation
 
