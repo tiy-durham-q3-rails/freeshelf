@@ -1,10 +1,14 @@
+require 'simplecov'
+SimpleCov.start 'rails'
+SimpleCov.command_name "MiniTest"
+
 ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../../config/environment', __FILE__)
 require 'rails/test_help'
 require 'capybara/rails'
+require 'capybara/poltergeist'
 require "wrong"
 require "bcrypt"
-require 'capybara/poltergeist'
 
 module TestPasswordHelper
   def default_password_digest

@@ -8,7 +8,7 @@ class BooksController < ApplicationController
 
   def tags
     @tag_name = params[:tag]
-    @tag = ActsAsTaggableOn::Tag.find_by_name(@tag_name)
+    @tag = ActsAsTaggableOn::Tag.where(:name => @tag_name).first_or_create
     @books = Book.includes(:tags).tagged_with(@tag).page params[:page]
   end
 
