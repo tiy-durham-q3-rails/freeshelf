@@ -26,9 +26,21 @@ ActiveRecord::Schema.define(version: 20140712020922) do
     t.text     "description"
     t.string   "cover"
     t.string   "slug"
+    t.integer  "user_id"
   end
 
+  add_index "books", ["user_id"], name: "index_books_on_user_id", using: :btree
   add_index "books", ["year_created"], name: "index_books_on_year_created", using: :btree
+
+  create_table "comments", force: true do |t|
+    t.string   "commenter"
+    t.text     "body"
+    t.integer  "book_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "comments", ["book_id"], name: "index_comments_on_book_id", using: :btree
 
   create_table "favorites", force: true do |t|
     t.integer  "user_id"

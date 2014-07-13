@@ -1,0 +1,4 @@
+- book.tags.each do |tag|
+  span.secondary.radius.label>
+    = link_to tag, tag_books_path(tag.name)
+= edit_tag_link_to(book)

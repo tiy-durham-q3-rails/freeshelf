@@ -32,7 +32,8 @@ namespace :random do
                    :year_created => 2014 - Random.rand(0..30),
                    :tag_list => tag_list,
                    :cover => File.new(tempfile),
-                   :description => Faker::Lorem.paragraph)
+                   :description => Faker::Lorem.paragraph,
+                   :user_id => User.first)
     end
   end
 

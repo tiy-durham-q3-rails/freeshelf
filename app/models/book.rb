@@ -5,6 +5,9 @@ class Book < ActiveRecord::Base
   validates :title, presence: true
   validates :slug, presence: true
   validates :creator, presence: true
+  validates :url, presence: true
+
+  belongs_to :user
 
   mount_uploader :cover, CoverUploader
 
