@@ -1,5 +1,4 @@
 = simple_form_for book, :html => {:multipart => true} do |form|
-  = form.input :user_id, as: :hidden, input_html: { value: current_user.id } unless @book.title
   = form.input :title
   = form.input :creator
   = form.input :url
