@@ -1,33 +1,36 @@
 .row
   .medium-9.columns
+    #edit_tag_modal.reveal-modal data-reveal=''
+    #test
     .book-info
       h2
         = @book.title
         - if current_user
-          small< = link_to "Edit", edit_book_path(@book)
+          small< = link_to "Edit", edit_book_path(@book) if current_user?(@book.user)
           span< = favorite_link_to @book
       .row
         .small-9.columns
           p
-            span.author
-              ' #{@book.author},
-            span.publish-year = @book.publish_year
+            span.creator = @book.creator
+            - if @book.year_created
+              ' ,
+              span.year-created = @book.year_created
         .small-3.columns
           p.right
-            = link_to "Link to book", @book.link
+            = link_to "Link to book", @book.url
     p.tags
-      - @book.tags.each do |tag|
-        span.secondary.radius.label>
-          = link_to tag, tag_books_path(tag.name)
+      = render partial: 'tag_list', locals: { book: @book }
     .description = simple_format(@book.description)
 
   .medium-3.columns
     .book-cover
       = image_tag @book.cover_url if @book.cover?
-.row
-  .columns.related-books
-    h3 Related books
-    = render 'books', :books => @related_books
+
+- if @related_books.present?
+  .row
+    .columns.related-books
+      h3 Related books
+      = render 'books', :books => @related_books
 
 
 h2 Comments
@@ -43,14 +46,12 @@ h2 Comments
 h2 Add a comment:
 = form_for([@book, @book.comments.build]) do |f|
   p
-    = f.label :commenter
-    = f.text_field :commenter
+    = f.hidden_field :commenter, value: current_user.name if current_user
   p
-    = f.label :body
+    = f.label :Comment
     = f.text_area :body
   p
     = f.submit
-  p
 
-= link_to 'Back ', books_path
-= link_to 'Edit', edit_book_path(@book)
+
+

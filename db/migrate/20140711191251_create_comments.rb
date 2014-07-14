@@ -4,6 +4,7 @@ class CreateComments < ActiveRecord::Migration
       t.string :commenter
       t.text :body
       t.references :book, index: true
+      t.references :video, index: true
 
       t.timestamps
     end

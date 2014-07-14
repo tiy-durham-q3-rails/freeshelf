@@ -25,6 +25,7 @@ gem 'friendly_id', '~> 5.0.0'
 gem 'holder_rails'
 gem 'identicon', '~> 0.0.3'
 gem 'mini_magick', '~> 3.7.0'
+gem 'oembedr'
 gem 'rails-assets-mailcheck'
 gem 'simple_form', '~> 3.0.2'
 gem 'slim', '~> 2.0.3'
@@ -39,17 +40,20 @@ end
 group :development, :test do
   gem "better_errors"
   gem "binding_of_caller"
-  gem "brakeman"
-  gem 'capybara'
-  gem 'capybara-webkit'
-  gem 'database_cleaner'
+  gem "brakeman", :require => false
   gem 'dotenv-rails'
-  gem 'headless'
-  gem 'launchy'
   gem "pry-rails"
   gem 'quiet_assets'
-  gem "rails_best_practices"
-  gem "rake"
-  gem "selenium-webdriver"
-  gem "wrong"
+  gem "rails_best_practices", :require => false
+  gem "rake", :require => false
+end
+
+group :test do
+  gem 'capybara', :require => false
+  gem 'database_cleaner'
+  gem 'launchy'
+  gem 'poltergeist'
+  gem 'simplecov', '~> 0.7.1', :require => false
+  gem 'selenium-webdriver'
+  gem "wrong", :require => false
 end
