@@ -36,7 +36,6 @@ class BooksController < ApplicationController
 
     if @book.save
       # TagMailer.new_tag_alert(current_user, @book.slug, @book.tag_list).deliver
-      redirect_to @book, notice: "Your book was added."
       email_update(@book)
       add_user_as_tagger
       respond_to do |format|
