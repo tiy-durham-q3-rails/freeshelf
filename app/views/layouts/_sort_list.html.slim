@@ -1,0 +1,9 @@
+= link_to 'Sort By', '#', :data => {dropdown: 'drop1'}, :class => 'button tiny dropdown sort_dropdown'
+ul#drop1.f-dropdown data-dropdown-content=""
+  li.sort_link = link_to_sort_by 'alphabetically'
+  li.sort_link = link_to_sort_by 'date_added'
+  li.sort_link = link_to_sort_by 'year_published'
+  li.sort_link = link_to_sort_by 'most_popular'
+
+.sorted_by
+  =link_to_reverse_order
