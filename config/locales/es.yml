@@ -1,0 +1,90 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+es:
+  hello: "Hello world"
+  views:
+    pagination:
+      first: "&laquo;"
+      last: "&raquo;"
+      truncate: "&hellip;"
+
+  layouts:
+    application:
+      login:      "Ingresar"
+      logout:     "Salir"
+      signup:     "Registrarse"
+      add_book:   "Agregar un libro"
+      logged_as:  "Conectado como %{name}"
+
+  books:
+    show:
+      edit:           "Editar"
+      link_to_book:   "Enlace al libro"
+      related_books:  "Libros relacionados"
+
+    form:
+      title:          "Título"
+      author:         "Autor"
+      document:       "Documento"
+      publish_year:   "Año de Publicación"
+      tag_list:       "Lista de Etiquetas"
+      tags_hint:      "Separe las etiquetas con comas"
+      description:    "Descripción"
+      cover:          "Tapa"
+      submit:         "Enviar"
+
+    new:
+      new_book:       "Nuevo libro"
+
+    edit:
+      edit_book:      "Editar libro"
+
+    tags:
+      books_tagged_with:  "Libros etiquetados con %{tag}"
+
+  sessions:
+    new:
+      log_in:         "Ingresar"
+      password:       "Contraseña"
+      login:          "Ingresar"
+      forgot_pass:    "Olvidó la contraseña?"
+
+  password_resets:
+    show:
+      update_password:  "Actualizar contraseña"
+      password:         "Contraseña"
+      password_confirmation:  "Confirmación de contraseña"
+      submit:           "Enviar"
+
+    new:
+      reset_your_password:  "Reinicie su contraseña"
+      message:              "Al ingresar su cuenta de email, le será enviado un enlace para reiniciar su contraseña"
+      your_email:           "Su email"
+      reset_password:       "Reiniciar contraseña"
+
+
+  activerecord:
+    models:
+      user:           "Usuario"
+      book:           
+        one:          "libro"
+        other:        "libros"

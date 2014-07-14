@@ -6,7 +6,7 @@
       h2
         = @book.title
         - if current_user
-          small< = link_to "Edit", edit_book_path(@book) if current_user?(@book.user)
+          small< = link_to t('.edit'), edit_book_path(@book) if current_user?(@book.user)
           span< = favorite_link_to @book
       .row
         .small-9.columns
@@ -17,7 +17,7 @@
               span.year-created = @book.year_created
         .small-3.columns
           p.right
-            = link_to "Link to book", @book.url
+            = link_to t('.link_to_book'), @book.url
     p.tags
       = render partial: 'tag_list', locals: { book: @book }
     .description = simple_format(@book.description)
@@ -25,10 +25,8 @@
   .medium-3.columns
     .book-cover
       = image_tag @book.cover_url if @book.cover?
-
-- if @related_books.present?
-  .row
-    .columns.related-books
-      h3 Related books
-      = render 'books', :books => @related_books
+.row
+  .columns.related-books
+    h3 = t('.related_books')
+    = render 'books', :books => @related_books
 

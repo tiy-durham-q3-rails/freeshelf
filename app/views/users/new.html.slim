@@ -11,4 +11,8 @@
           = f.input :password
         .medium-6.columns
           = f.input :password_confirmation
-      = f.button :submit
+      .row
+        .medium-6.columns
+          = f.label :locale, "Language"
+          = f.select :locale, [["English", "en"], ["Español", "es"]] #FIXME: change for the array of available languages
+      = f.button :submit 

@@ -1,8 +1,8 @@
 .row
-  h2
-    | Books tagged with "#{@tag}"
-    span< = favorite_link_to @tag
   .large-12.columns.book_content
+    h2
+      = t('.books_tagged_with'), tag: @tagBooks tagged with "#{@tag}"
+      span< = favorite_link_to @tag
     = render 'books', :books => @books
 
 =content_for(:sort_function)
