@@ -70,6 +70,11 @@ ActiveRecord::Schema.define(version: 20140714140903) do
 
   add_index "password_resets", ["user_id"], name: "index_password_resets_on_user_id", using: :btree
 
+  create_table "suggestions", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "taggings", force: true do |t|
     t.integer  "tag_id"
     t.integer  "taggable_id"
@@ -96,6 +101,7 @@ ActiveRecord::Schema.define(version: 20140714140903) do
     t.string   "password_digest"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.datetime "last_looked_at_suggestions", default: '2014-07-14 14:51:50'
   end
 
   create_table "videos", force: true do |t|
