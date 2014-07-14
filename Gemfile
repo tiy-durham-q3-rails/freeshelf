@@ -58,6 +58,4 @@ group :test do
   gem 'poltergeist'
   gem 'simplecov', '~> 0.7.1', :require => false
   gem 'selenium-webdriver'
-  gem "wrong", :require => false
->>>>>>> upstream/master
 end

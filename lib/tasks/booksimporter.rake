@@ -1,3 +1,6 @@
+
+#TODO ********IMPT - RIGHT NOW THIS CAN ONLY BE RUN ONE TIME BEFORE NEEDING TO DROP THE DB**********
+
 namespace :books do
   desc 'Rake task to get books data'
   task :import => :environment do #TODO create cron on heroku for regularly scheduled refreshes of data
@@ -59,7 +62,6 @@ namespace :books do
             puts "***Did not import: either was already in the database, or your file has dupe urls. #{@book.title}.***"
             puts "\t\t(#{@book.url}).\n\t\t\ttag(s): #{@book.tag_list} \t\t\t\t\tby: #{@book.creator}"
           end
-
         elsif line =~ /^[\s].*/
           processed -= 1
         else
