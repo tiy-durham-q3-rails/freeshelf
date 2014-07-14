@@ -33,11 +33,9 @@ class BooksController < ApplicationController
 
   def create
     @book = current_user.books.build(book_params)
-
     if @book.save
-      # TagMailer.new_tag_alert(current_user, @book.slug, @book.tag_list).deliver
-      email_update(@book)
       add_user_as_tagger
+      email_update(@book)
       respond_to do |format|
         format.html { redirect_to @book, notice: "Your book was added." }
         format.js
@@ -63,8 +61,6 @@ class BooksController < ApplicationController
   def email_update(book)
     tags = book.tags
     slug = book.slug
-
-
     recipients = User.where(email_update:true).all
     recipients.each do |user|
       favs = user.favorite_tags
@@ -76,7 +72,8 @@ class BooksController < ApplicationController
           end
         end
       end
-    end
+  end
+
   def sort
     @books = Book.send(params[:scope]).page params[:page]
     @sort_name = params[:scope].titleize
