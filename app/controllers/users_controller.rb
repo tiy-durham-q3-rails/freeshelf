@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:edit, :change_password, :update]
+  before_action :set_user, only: [:edit, :change_password, :update,
+                                  :change_password_update]
 
   def new
     @user = User.new
@@ -25,17 +26,25 @@ class UsersController < ApplicationController
 
   def update
     if @user.update(user_params)
-      redirect_to root_url, notice: 'You updated your information.'
+      redirect_to root_url, notice: 'You updated your profile.'
     else
       render :edit
+    end
+  end
+
+  def change_password_update
+    if @user.update(user_params)
+      redirect_to root_url, notice: 'You changed your password.'
+    else
+      render :change_password
     end
   end
 
   private
 
   def set_user
-      @user = User.find(params[:id])
-    end
+    @user = User.find(params[:id])
+  end
 
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation)

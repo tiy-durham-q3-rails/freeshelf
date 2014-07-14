@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   get "account_verification/:id" => "email_confirmation#welcome", :as => "account_verification"
   get 'signup' => 'users#new', as: 'signup'
+  patch 'change_password_update/:id' => 'users#change_password_update', :as => 'change_password_update'
   get 'change_password/:id' => 'users#change_password', :as => 'change_password'
   get 'login' => 'sessions#new', as: 'login'
   post 'login' => 'sessions#create'
