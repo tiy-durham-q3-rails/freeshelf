@@ -3,10 +3,10 @@ require 'test_helper'
 class AuthenticationTest < ActionDispatch::IntegrationTest
   def assert_logged_in(user)
     within(".notice") do
-      assert { page.has_text?("You are now logged in.") }
+      assert { page.has_text? I18n.t('.logged_in') }
     end
     within(".main-nav") do
-      assert { page.has_text?("Logged in as #{user.name}") }
+      assert { page.has_text? I18n.t('.logged_as', name: user.name) }
     end
   end
 
@@ -22,7 +22,7 @@ class AuthenticationTest < ActionDispatch::IntegrationTest
     login
     click_link "Logout"
     within(".notice") do
-      assert { page.has_text?("You are now logged out.") }
+      assert { page.has_text? I18n.t ('.logged_out') }
     end
   end
 

@@ -24,6 +24,7 @@ en:
   email_or_pass_invalid: "Email or password is invalid"
   logged_out: "You are now logged out."
   thank_you:  "Thank you for signing up!"
+  logged_as:  "Logged in as %{name}"
 
   views:
     pagination:
@@ -93,6 +94,11 @@ en:
 
     new:
       new_video:      "New video"
+      back:           "Back"
+
+    edit:
+      edit:           "Editing video"
+      show:           "Show"
       back:           "Back"
 
   sessions:
