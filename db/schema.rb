@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140713190606) do
+ActiveRecord::Schema.define(version: 20140714053726) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,6 +32,16 @@ ActiveRecord::Schema.define(version: 20140713190606) do
 
   add_index "books", ["user_id"], name: "index_books_on_user_id", using: :btree
   add_index "books", ["year_created"], name: "index_books_on_year_created", using: :btree
+
+  create_table "email_confirmations", force: true do |t|
+    t.string   "token"
+    t.datetime "expires_at"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "email_confirmations", ["user_id"], name: "index_email_confirmations_on_user_id", using: :btree
 
   create_table "favorites", force: true do |t|
     t.integer  "user_id"
