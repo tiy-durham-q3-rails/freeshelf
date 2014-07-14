@@ -10,11 +10,11 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require utility
 //= require jquery
 //= require jquery_ujs
 //= require foundation
+//= require utility
 //= require holder
-//= require_tree .
+//= require users
 
 $(function(){ $(document).foundation(); });
