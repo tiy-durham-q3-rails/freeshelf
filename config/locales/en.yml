@@ -34,3 +34,58 @@ en:
       signup:     "Sign Up"
       addbook:    "Add a book"
       logged_as:  "Logged in as %{name}"
+
+  books:
+    show:
+      edit:           "Edit"
+      link_to_book:   "Link to book"
+      related_books:  "Related books"
+
+    form:
+      title:          "Title"
+      author:         "Author"
+      document:       "Document"
+      publish_year:   "Publish Year"
+      tag_list:       "Tag list"
+      tags_hint:      "Separate tags with commas."
+      description:    "Description"
+      cover:          "Cover"
+      submit:         "Submit"
+
+    new:
+      new_book:       "New book"
+
+    edit:
+      edit_book:      "Edit books"
+
+    tags:
+      books_tagged_with:  "Books tagged with %{tag}"
+
+  sessions:
+    new:
+      log_in:         "Log in"
+      password:       "Password"
+      login:          "Login"
+      forgot_pass:    "Forgot your password?"
+
+  password_resets:
+    show:
+      update_password:  "Update password"
+      password:         "Password"
+      password_confirmation:  "Password confirmation"
+      submit:           "Submit"
+
+    new:
+      reset_your_password:  "Reset your pasword"
+      message:              "When you enter your email address, a reset password link will be sent to you."
+      your_email:           "Your email"
+      reset_password:       "Reset password"
+
+  activerecord:
+    models:
+      user:           "User"
+
+
+
+
+

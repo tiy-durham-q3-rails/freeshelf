@@ -1,17 +1,17 @@
 = simple_form_for book, :html => {:multipart => true} do |form|
-  = form.input :title
-  = form.input :author
+  = form.input :title, label: t('.title')
+  = form.input :author, label: t('.author')
   = form.input :url
-  = form.input :document
-  = form.input :publish_year
-  = form.input :tag_list, :hint => "Separate tags with commas."
-  = form.input :description, input_html: {rows: 10}
+  = form.input :document, label: t('.document')
+  = form.input :publish_year, label: t('.publish_year')
+  = form.input :tag_list, label: t('.tag_list'), :hint => t('.tags_hint')
+  = form.input :description, input_html: {rows: 10}, label: t('.description')
   .row
     .medium-6.columns
-      = form.input :cover, :as => :file
+      = form.input :cover, :as => :file, label: t('.cover')
       = form.input :cover_cache, :as => :hidden
       = form.input :remote_cover_url, :as => :text
     .medium-6.columns
       = image_tag(book.cover_url) if book.cover?
 
-  = form.button :submit
+  = form.button :submit, label: t('.submit'), model: Book.model_name.human

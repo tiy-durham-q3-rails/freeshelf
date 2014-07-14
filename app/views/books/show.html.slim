@@ -4,7 +4,7 @@
       h2
         = @book.title
         - if current_user
-          small< = link_to "Edit", edit_book_path(@book)
+          small< = link_to t('.edit'), edit_book_path(@book)
           span< = favorite_link_to @book
       .row
         .small-9.columns
@@ -14,7 +14,7 @@
             span.publish-year = @book.publish_year
         .small-3.columns
           p.right
-            = link_to "Link to book", @book.link
+            = link_to t('.link_to_book'), @book.link
     p.tags
       - @book.tags.each do |tag|
         span.secondary.radius.label>
@@ -26,6 +26,6 @@
       = image_tag @book.cover_url if @book.cover?
 .row
   .columns.related-books
-    h3 Related books
+    h3 = t('.related_books')
     = render 'books', :books => @related_books
 
