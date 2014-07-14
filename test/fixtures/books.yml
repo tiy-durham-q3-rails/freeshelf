@@ -1,13 +1,31 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  title: MyString
+  title: EMyString
+  creator: MyString
+  year_created: 1990
+  url: MyString
+
+two:
+  title: BMyString
+  creator: MyString
+  year_created: 1995
+  url: MyString
+
+three:
+  title: DMyString
+  creator: MyString
+  year_created: 1970
+  url: MyString
+
+four:
+  title: CMyString
   creator: MyString
   year_created: 2014
   url: MyString
 
-two:
-  title: MyString
+five:
+  title: AMyString
   creator: MyString
-  year_created: 2014
+  year_created: 2001
   url: MyString

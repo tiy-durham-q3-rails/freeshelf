@@ -1,6 +1,7 @@
 class BooksController < ApplicationController
-  before_action :authorize, except: [:index, :show]
-  before_action :find_book, only: [:show, :edit, :update]
+  before_action :authorize, only: [:new, :create, :edit, :edit_tags, :update, :update_tags]
+  before_action :find_book, only: [:show, :edit, :edit_tags, :update, :update_tags]
+  before_action :correct_user, only: :edit
 
   def index
     @books = Book.includes(:tags).page params[:page]
@@ -12,6 +13,17 @@ class BooksController < ApplicationController
     @books = Book.includes(:tags).tagged_with(@tag).page params[:page]
   end
 
+  def edit_tags
+  end
+
+  def update_tags
+    add_user_as_tagger
+    respond_to do |format|
+      format.html { redirect_to @book, notice: "Your tag list was updated." }
+      format.js
+    end
+  end
+
   def show
   end
 
@@ -20,13 +32,17 @@ class BooksController < ApplicationController
   end
 
   def create
-    @book = Book.new(book_params)
+    @book = current_user.books.build(book_params)
 
     if @book.save
-      email_update(@book)
       # TagMailer.new_tag_alert(current_user, @book.slug, @book.tag_list).deliver
-
       redirect_to @book, notice: "Your book was added."
+      email_update(@book)
+      add_user_as_tagger
+      respond_to do |format|
+        format.html { redirect_to @book, notice: "Your book was added." }
+        format.js
+      end
     else
       render :new
     end
@@ -37,6 +53,7 @@ class BooksController < ApplicationController
 
   def update
     if @book.update(book_params)
+      add_user_as_tagger
       redirect_to @book, notice: "Your book was updated."
     else
       render :edit
@@ -61,6 +78,21 @@ class BooksController < ApplicationController
         end
       end
     end
+  def sort
+    @books = Book.send(params[:scope]).page params[:page]
+    @sort_name = params[:scope].titleize
+    unless params[:tag].nil?
+      @tag = ActsAsTaggableOn::Tag.find_by_name(params[:tag])
+      @books = @books.includes(:tags).tagged_with(@tag).page params[:page]
+    end
+    if params[:order] == 'asc'
+      @books = @books.reverse_order
+    end
+    respond_to do |format|
+      format.js
+      format.html
+    end
+  end
 
   private
 
@@ -69,10 +101,16 @@ class BooksController < ApplicationController
   end
 
 
+  def correct_user
+    redirect_to root_url, notice: 'You can only edit a book that you have uploaded.' unless current_user?(@book.user)
+  end
 
+  def add_user_as_tagger
+    current_user.tag(@book, with: params[:user_tags], on: :tags)
+  end
 
   def book_params
-    params.require(:book).permit(:title, :url, :year_created, :creator, :description,
-                                 :cover, :cover_cache, :remote_cover_url, :tag_list)
+    params.require(:book).permit(:title, :url, :year_created, :creator, :description, :cover, :cover_cache,
+                                 :remote_cover_url, :document, :tag_list, :user_id)
   end
 end

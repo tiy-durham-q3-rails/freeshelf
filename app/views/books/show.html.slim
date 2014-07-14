@@ -1,10 +1,12 @@
 .row
   .medium-9.columns
+    #edit_tag_modal.reveal-modal data-reveal=''
+    #test
     .book-info
       h2
         = @book.title
         - if current_user
-          small< = link_to "Edit", edit_book_path(@book)
+          small< = link_to "Edit", edit_book_path(@book) if current_user?(@book.user)
           span< = favorite_link_to @book
       .row
         .small-9.columns
@@ -17,9 +19,7 @@
           p.right
             = link_to "Link to book", @book.url
     p.tags
-      - @book.tags.each do |tag|
-        span.secondary.radius.label>
-          = link_to tag, tag_books_path(tag.name)
+      = render partial: 'tag_list', locals: { book: @book }
     .description = simple_format(@book.description)
 
   .medium-3.columns

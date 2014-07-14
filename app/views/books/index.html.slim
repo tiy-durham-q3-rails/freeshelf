@@ -1,4 +1,7 @@
 .row
-  .large-12.columns
+  .large-12.columns.book_content
     = render 'books', :books => @books
 
+- content_for(:sort_function)
+  #sort_button
+    = render 'layouts/sort_list'
