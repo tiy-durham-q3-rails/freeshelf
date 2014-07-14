@@ -18,6 +18,7 @@ class BooksController < ApplicationController
 
   def update_tags
     add_user_as_tagger
+    @book = Book.friendly.find(params[:id])
     respond_to do |format|
       format.html { redirect_to @book, notice: "Your tag list was updated." }
       format.js

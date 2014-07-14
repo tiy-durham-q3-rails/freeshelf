@@ -1,5 +1,6 @@
 .row
   .medium-9.small-12.columns
+    #edit_tag_modal.reveal-modal data-reveal=''
     .video-info
       h2
         = @video.title
@@ -17,10 +18,8 @@
         p.right
           = link_to "Link to video", @video.url
     p.tags
-      - @video.tags.each do |tag|
-        span.secondary.radius.label>
-          = link_to tag, tag_videos_path(tag.name)
-      .description = simple_format(@video.description)
+      = render partial: 'tag_list', locals: { video: @video }
+    .description = simple_format(@video.description)
 .row
   .large-12.columns
     = video_embed(@video.url)
