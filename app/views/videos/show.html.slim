@@ -4,7 +4,7 @@
       h2
         = @video.title
         - if current_user
-          small< = link_to "Edit", edit_video_path(@video)
+          small< = link_to "Edit", edit_video_path(@video) if current_user?(@video.user)
           span< = favorite_link_to @video
     .row
       .small-9.columns

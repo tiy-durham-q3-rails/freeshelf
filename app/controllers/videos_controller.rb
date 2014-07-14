@@ -1,6 +1,7 @@
 class VideosController < ApplicationController
   before_action :authorize, except: [:index, :show]
   before_action :find_video, only: [:show, :edit, :update]
+  before_action :correct_user, only: :edit
 
   def index
     @videos = Video.includes(:tags).page params[:page]
@@ -47,7 +48,11 @@ class VideosController < ApplicationController
     @video = Video.friendly.includes(:tags).find(params[:id])
   end
 
+  def correct_user
+    redirect_to root_url, notice: 'You can only edit a video that you have uploaded.' unless current_user?(@video.user)
+  end
+
   def video_params
-    params.require(:video).permit(:title, :creator, :summary, :link, :tag_list)
+    params.require(:video).permit(:title, :creator, :summary, :link, :tag_list, :user_id)
   end
 end

@@ -1,6 +1,7 @@
 = simple_form_for(@video) do |f|
   = f.error_notification
   .form-inputs
+    = f.input :user_id, as: :hidden, input_html: { value: current_user.id } unless @video.title
     = f.input :title
     = f.input :creator
     = f.input :description
