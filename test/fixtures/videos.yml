@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  creator: MyString
+  description: MyString
+  url: http://www.youtube.com/watch?v=kPRA0W1kECg
+  year_created: 2014
+
+two:
+  title: MyString
+  creator: MyString
+  description: MyString
+  url: http://www.youtube.com/watch?v=C2vgICfQawE
+  year_created: 2014
