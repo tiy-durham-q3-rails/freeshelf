@@ -13,7 +13,6 @@ class BooksController < ApplicationController
   end
 
   def show
-    @related_books = @book.find_related_tags.take(3)
   end
 
   def new
@@ -52,10 +51,10 @@ class BooksController < ApplicationController
 
     recipients = User.where(email_update:true).all
     recipients.each do |user|
-      favs = user.favorites
+      favs = user.favorite_tags
       tags.each do |tag|
-        favs.each do |fav_id|
-          if fav_id.favoritable_id == tag.id
+        favs.each do |fav|
+          if fav.id == tag.id
             TagMailer.new_tag_alert(user, slug, tag).deliver
             end
           end
