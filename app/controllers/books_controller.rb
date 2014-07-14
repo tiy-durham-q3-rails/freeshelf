@@ -28,6 +28,7 @@ class BooksController < ApplicationController
     else
       render :new
     end
+
   end
 
   def edit
@@ -46,6 +47,8 @@ class BooksController < ApplicationController
   def find_book
     @book = Book.friendly.includes(:tags).find(params[:id])
   end
+
+
 
   def book_params
     params.require(:book).permit(:title, :url, :year_created, :creator, :description,

@@ -1,2 +1,5 @@
 h3 Settings
 p Add settings here
+= simple_form_for @current_user  do |f|
+  = f.input :name
+  = f.button :submit
