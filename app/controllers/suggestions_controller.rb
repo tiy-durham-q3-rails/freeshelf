@@ -16,7 +16,7 @@ class SuggestionsController < ApplicationController
     end # each favorite_tag
 
     suggest.each{ |e| h[e] += 1 }
-    
+
     sort = h.sort{|a,b| a[1] <=> b[1]}
 
     suggest = sort.collect { |k, v| k }
