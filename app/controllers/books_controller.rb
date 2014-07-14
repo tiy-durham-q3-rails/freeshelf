@@ -36,9 +36,8 @@ class BooksController < ApplicationController
     @book = Book.new(book_params)
 
     if @book.save
-      email_update(@book)
-      redirect_to @book, notice: "Your book was added."
       add_user_as_tagger
+      email_update(@book)
       respond_to do |format|
         format.html { redirect_to @book, notice: "Your book was added." }
         format.js
@@ -64,8 +63,6 @@ class BooksController < ApplicationController
   def email_update(book)
     tags = book.tags
     slug = book.slug
-
-
     recipients = User.where(email_update:true).all
     recipients.each do |user|
       favs = user.favorites
