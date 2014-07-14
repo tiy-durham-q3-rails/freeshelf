@@ -1,10 +1,15 @@
+require 'simplecov'
+SimpleCov.start 'rails'
+SimpleCov.command_name "MiniTest"
+
 ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../../config/environment', __FILE__)
 require 'rails/test_help'
 require 'capybara/rails'
+require 'capybara/poltergeist'
+require "headless"
 require "wrong"
 require "bcrypt"
-require 'capybara/poltergeist'
 
 module TestPasswordHelper
   def default_password_digest
@@ -31,11 +36,17 @@ class ActiveSupport::TestCase
       user = users(:one)
     end
     @request.env["rack.session"]["user_id"] = user.id
+    user
   end
+end
+
+Capybara.register_driver :poltergeist_debug do |app|
+  Capybara::Poltergeist::Driver.new(app, :inspector => true)
 end
 
 Capybara.default_driver = :rack_test
 Capybara.javascript_driver = :poltergeist
+# Capybara.javascript_driver = :poltergeist_debug
 Capybara.server_port = 31337
 DatabaseCleaner.strategy = :truncation
 
@@ -61,6 +72,15 @@ class ActionDispatch::IntegrationTest
 
   def use_driver(driver)
     Capybara.current_driver = driver
+  end
+
+  def use_selenium
+    Capybara.current_driver = :selenium
+    if block_given?
+      Headless.ly do
+        yield
+      end
+    end
   end
 
   def login(user = nil, password = nil)

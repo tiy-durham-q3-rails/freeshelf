@@ -8,7 +8,7 @@ class BookTest < ActiveSupport::TestCase
   end
 
   test "a book generates a slug from its title and author if the title is not unique" do
-    Book.new(:title => "There and Back Again", :creator => "Bilbo Baggins").save!
+    Book.new(:title => "There and Back Again", :creator => "Bilbo Baggins", :url => "http://example.org").save!
     book = Book.new(:title => "There and Back Again", :creator => "Pat Murphy")
     book.valid?
     assert { book.slug == "there-and-back-again-pat-murphy" }

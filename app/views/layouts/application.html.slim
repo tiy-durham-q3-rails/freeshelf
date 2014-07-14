@@ -25,15 +25,22 @@ html lang="en"
           li.divider
           - if current_user
             li = link_to "Logged in as #{current_user.name}", "#"
+            li = link_to "Settings", '#', data: {:'reveal-id' => 'settings-modal'}
             li = link_to "Logout", logout_path, :method => :delete
+
           - else
             li = link_to "Sign up", signup_path
             li = link_to "Login", login_path
           = content_for(:nav)
+          = yield :sort_function
       .medium-10.columns
         .row
           = alert_box alert, "alert"
           = alert_box notice
           = yield
+  #settings-modal.reveal-modal.medium data-reveal=true
+    = render :partial => 'users/settings'
+    .close-reveal-modal
+      == "&#215;"
 
     = javascript_include_tag "application"
