@@ -4,8 +4,8 @@ options:
 records:
   - sprig_id: 1
     title: Why's (Poignant) Guide to Ruby
-    author: _why the lucky stiff
-    publish_year: 2005
+    creator: _why the lucky stiff
+    year_created: 2005
     url: http://mislav.uniqpath.com/poignant-guide/
     description: >
       I’ll be straight with you. I want you to cry. To weep. To whimper sweetly. This book is a poignant guide to Ruby.
@@ -14,8 +14,8 @@ records:
 
   - sprig_id: 2
     title: Objects on Rails
-    author: Avdi Grimm
-    publish_year: 2014
+    creator: Avdi Grimm
+    year_created: 2014
     url: http://objectsonrails.com/
     description: >
       This is a "developer's notebook" documenting some guidelines, techniques, and ideas for applying classic
@@ -23,8 +23,8 @@ records:
 
   - sprig_id: 3
     title: The Craft of Text Editing
-    author: Craig A. Finseth
-    publish_year: 1999
+    creator: Craig A. Finseth
+    year_created: 1999
     url: http://www.finseth.com/craft/
     description: >
       In its most general form, text editing is the process of taking some input, changing it, and producing some
@@ -34,7 +34,7 @@ records:
 
   - sprig_id: 4
     title: Eloquent JavaScript, 2nd Edition
-    author: Marijn Haverbeke
-    publish_year: 2014
+    creator: Marijn Haverbeke
+    year_created: 2014
     url: http://eloquentjavascript.net/2nd_edition/preview/
     description: A modern introduction to JavaScript, programming, and the wonders of the digital.

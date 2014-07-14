@@ -1,7 +1,13 @@
+require 'simplecov'
+SimpleCov.start 'rails'
+SimpleCov.command_name "MiniTest"
+
 ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../../config/environment', __FILE__)
 require 'rails/test_help'
 require 'capybara/rails'
+require 'capybara/poltergeist'
+require "headless"
 require "wrong"
 require "bcrypt"
 
@@ -30,13 +36,19 @@ class ActiveSupport::TestCase
       user = users(:one)
     end
     @request.env["rack.session"]["user_id"] = user.id
+    user
   end
 end
 
+Capybara.register_driver :poltergeist_debug do |app|
+  Capybara::Poltergeist::Driver.new(app, :inspector => true)
+end
+
 Capybara.default_driver = :rack_test
+Capybara.javascript_driver = :poltergeist
+# Capybara.javascript_driver = :poltergeist_debug
 Capybara.server_port = 31337
 DatabaseCleaner.strategy = :truncation
-
 
 class ActionDispatch::IntegrationTest
   # Make the Capybara DSL available in all integration tests
@@ -44,8 +56,6 @@ class ActionDispatch::IntegrationTest
   include Capybara::DSL
 
   def setup
-    @headless = Headless.new rescue nil
-    @headless.start unless @headless.nil?
     host! "127.0.0.1:#{Capybara.server_port}"
     DatabaseCleaner.start
   end
@@ -54,11 +64,23 @@ class ActionDispatch::IntegrationTest
     Capybara.reset_sessions!
     Capybara.use_default_driver
     DatabaseCleaner.clean
-    @headless.destroy unless @headless.nil?
+  end
+
+  def use_javascript
+    Capybara.current_driver = Capybara.javascript_driver
   end
 
   def use_driver(driver)
     Capybara.current_driver = driver
+  end
+
+  def use_selenium
+    Capybara.current_driver = :selenium
+    if block_given?
+      Headless.ly do
+        yield
+      end
+    end
   end
 
   def login(user = nil, password = nil)

@@ -3,16 +3,24 @@ class Book < ActiveRecord::Base
   acts_as_taggable
 
   validates :title, presence: true
-  validates :author, presence: true
+  validates :slug, presence: true
+  validates :creator, presence: true
+  validates :url, presence: true
+
+  belongs_to :user
+  has_many :favorites, :as => :favoritable
+
+  scope :alphabetically, -> { order(:title)  }
+  scope :date_added, -> { order(created_at: :desc) }
+  scope :year_published, -> { order(year_created: :desc) }
+  scope :most_popular, -> { order(favorites_count: :desc)}
 
   mount_uploader :cover, CoverUploader
-  mount_uploader :document, DocumentUploader
 
-  def link
-    if document?
-      document.url
-    else
-      self.url
-    end
+  extend FriendlyId
+  friendly_id :slug_candidates, :use => :slugged
+
+  def slug_candidates
+    [:title, [:title, :creator]]
   end
 end
