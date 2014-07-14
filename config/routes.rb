@@ -17,5 +17,13 @@ Rails.application.routes.draw do
   get 'sort' => 'books#sort'
   resources :favorites, only: [:create, :destroy]
 
+  resources :books do
+    resources :comments
+  end
+
+  resources :videos do
+    resources :comments
+  end
+
   root 'books#index'
 end

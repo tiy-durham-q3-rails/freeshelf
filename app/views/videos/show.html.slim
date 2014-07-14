@@ -31,3 +31,24 @@
       h3 Related videos
       = render 'videos', :videos => @related_videos
 
+
+h2 Comments
+- @video.comments.each do |comment|
+  p
+    strong Commenter:
+    = comment.commenter
+
+  p
+    strong Comment:
+    = comment.body
+
+h2 Add a comment:
+= form_for([@video, @video.comments.build]) do |f|
+  p
+    = f.hidden_field :commenter, value: current_user.name if current_user
+  p
+    = f.label :Comment
+    = f.text_area :body
+  p
+    = f.submit
+

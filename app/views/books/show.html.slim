@@ -32,3 +32,26 @@
       h3 Related books
       = render 'books', :books => @related_books
 
+
+h2 Comments
+- @book.comments.each do |comment|
+  p
+    strong Commenter:
+    = comment.commenter
+
+  p
+    strong Comment:
+    = comment.body
+
+h2 Add a comment:
+= form_for([@book, @book.comments.build]) do |f|
+  p
+    = f.hidden_field :commenter, value: current_user.name if current_user
+  p
+    = f.label :Comment
+    = f.text_area :body
+  p
+    = f.submit
+
+
+
