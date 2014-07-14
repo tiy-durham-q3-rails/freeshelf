@@ -25,7 +25,7 @@ html lang="en"
           li.divider
           - if current_user
             li = link_to "Logged in as #{current_user.name}", "#"
-            li = link_to "Settings", '#', data: {:'reveal-id' => 'settings-modal', :controller => "users"}
+            li = link_to "Settings", '#', data: {:'reveal-id' => 'settings-modal'}
             li = link_to "Logout", logout_path, :method => :delete
 
           - else
@@ -37,12 +37,14 @@ html lang="en"
           = alert_box alert, "alert"
           = alert_box notice
           = yield
-  #settings-modal.reveal-modal.medium data-reveal=true
-    = render :partial => 'users/settings', assign_controller: 'users'
-    .close-reveal-modal
-      == "&#215;"
 
 
     = javascript_include_tag "application"
+
+  #settings-modal.reveal-modal.medium data-reveal=true
+    = render :partial => 'users/settings', :controller => 'users'
+    .close-reveal-modal
+      == "&#215;"
+
 
 

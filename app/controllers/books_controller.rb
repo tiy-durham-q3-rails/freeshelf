@@ -24,11 +24,13 @@ class BooksController < ApplicationController
     @book = Book.new(book_params)
 
     if @book.save
+      email_update(@book)
+      # TagMailer.new_tag_alert(current_user, @book.slug, @book.tag_list).deliver
+
       redirect_to @book, notice: "Your book was added."
     else
       render :new
     end
-
   end
 
   def edit
@@ -42,11 +44,31 @@ class BooksController < ApplicationController
     end
   end
 
+
+  def email_update(book)
+    tags = book.tags
+    slug = book.slug
+
+
+    recipients = User.where(email_update:true).all
+    recipients.each do |user|
+      favs = user.favorites
+      tags.each do |tag|
+        favs.each do |fav_id|
+          if fav_id.favoritable_id == tag.id
+            TagMailer.new_tag_alert(user, slug, tag).deliver
+            end
+          end
+        end
+      end
+    end
+
   private
 
   def find_book
     @book = Book.friendly.includes(:tags).find(params[:id])
   end
+
 
 
 
