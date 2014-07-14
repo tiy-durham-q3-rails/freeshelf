@@ -20,16 +20,16 @@ html lang="en"
           li = link_to "Home", root_path
           li = link_to "Videos", videos_path
           li = link_to t('.add_book'), new_book_path
-          li = link_to "Add a Video", new_video_path
+          li = link_to t('.add_video'), new_video_path
 
           li.divider
           - if current_user
             li = link_to t('.logged_as', name: current_user.name), "#"
-            li = link_to "Settings", '#', data: {:'reveal-id' => 'settings-modal'}
+            li = link_to t('.settings'), '#', data: {:'reveal-id' => 'settings-modal'}
             li = link_to t('.logout'), logout_path, :method => :delete
 
           - else
-            li = link_to "Sign up", signup_path
+            li = link_to t('.signup'), signup_path
             li = link_to t('.login'), login_path
           = content_for(:nav)
           = yield :sort_function
