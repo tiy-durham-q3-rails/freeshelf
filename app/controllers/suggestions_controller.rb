@@ -18,7 +18,7 @@ class SuggestionsController < ApplicationController
     suggest.each{ |e| h[e] += 1 }
     sort = h.sort{|a,b| a[1] <=> b[1]}
     suggest = sort.collect { |k, v| k }
-    current_user.update(:last_looked_at_suggestions => DateTime.now)
+    current_user.update(:last_looked_at_suggestions => (DateTime.now + 900))
     suggest.reverse
   end # find_user_suggestions
 end
