@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   delete 'logout' => 'sessions#destroy', as: 'logout'
 
   resources :password_resets, only: [:new, :create, :show, :update]
-  resources :users, only: [:create]
+  resources :users, only: [:create, :update]
   resources :books, except: [:destroy] do
     get 'tags/:tag' => 'books#tags', :on => :collection, :as => :tag
     get 'tags' => 'books#edit_tags', :on => :member, :as => :edit_tags
