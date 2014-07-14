@@ -11,7 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20140714053726) do
+=======
+ActiveRecord::Schema.define(version: 20140714140903) do
+>>>>>>> upstream/master
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +34,9 @@ ActiveRecord::Schema.define(version: 20140714053726) do
     t.integer  "favorites_count", default: 0
   end
 
+  add_index "books", ["created_at"], name: "index_books_on_created_at", using: :btree
+  add_index "books", ["favorites_count"], name: "index_books_on_favorites_count", using: :btree
+  add_index "books", ["title"], name: "index_books_on_title", using: :btree
   add_index "books", ["user_id"], name: "index_books_on_user_id", using: :btree
   add_index "books", ["year_created"], name: "index_books_on_year_created", using: :btree
 

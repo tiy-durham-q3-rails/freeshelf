@@ -19,7 +19,7 @@ Rails.application.routes.draw do
     get 'tags/:tag' => 'video#tags', :on => :collection, :as => :tag
   end
   get 'sort' => 'books#sort'
-  resources :favorites, only: [:create, :destroy]
+  resources :favorites, only: [:create, :destroy, :show]
 
   root 'books#index'
 end
