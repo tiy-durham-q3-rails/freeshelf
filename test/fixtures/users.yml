@@ -4,8 +4,10 @@ one:
   name: One Example
   email: one@example.org
   password_digest: <%= default_password_digest %>
+  locale: "en"
 
 two:
   name: Two Example
   email: two@example.org
   password_digest: <%= default_password_digest %>
+  locale: en
