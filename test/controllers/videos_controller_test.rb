@@ -30,11 +30,6 @@ class VideosControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should get edit" do
-    get :edit, id: @video
-    assert_response :success
-  end
-
   test "should update video" do
     patch :update, id: @video, video: { creator: @video.creator, url: @video.url, description: @video.description, title: @video.title }
     assert_redirected_to video_path(assigns(:video))
