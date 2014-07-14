@@ -6,10 +6,9 @@ namespace :books do
     processed = 1
     open('https://raw.githubusercontent.com/vhf/free-programming-books/master/free-programming-books.md',
          'User-Agent' => 'freeshelf_app') do |free_books|
-    free_books.each_line do |line|
-
-    #NOTE: when using online ref, need the extra end at end of file
-    #free_books = File.open(File.join('lib/tasks', 'freeprogrammingbooks.md'),'r').each_line do |line|
+      free_books.each_line do |line|
+    #NOTE: when using online ref ("open("), need the extra end at end of file
+    #free_books = File.open(File.join('lib/assets', 'freeprogrammingbooks.md'),'r').each_line do |line|
       processed +=1
       attrs = :title, :url, :tag, :creator, :slug
         #TODO make tag_list an array.
@@ -25,7 +24,6 @@ namespace :books do
           title.shift
           url = (title.last).split(/[[\]] [\(] [\)*]]/,3)
           url.shift
-#binding.pry
           #TODO fix all these shifts so books:import can be run repeatedly without dropping the db. might be ok w live file?
           creatorextra = (url.last).split(/[\s]+[-]{1}+[\s]+(?=[\w])/) #TODO fix edge case creators, e.g.  2.x
           creator3 = (creatorextra.last).split(/[\s]+[Bb]y+[\s]+(?=[\w])/)
@@ -50,13 +48,13 @@ namespace :books do
             end
             if @book.creator =~ /^[\s]*[\-\.\*\,\|].*/ || @book.creator =~ /^[\s]*[\d\-\.\*\,].*/
               puts "*********Check this record. Creator info may not have imported correctly:*********"
-              #TODO create non-inline list of odd creator info
+              #TODO create non-inline list of odd creator info.
+              #TODO refactor this file!!!
             end
             puts "New book ##{saved}: #{@book.title}"
             puts "\t\t(#{@book.url}).\n\t\t\ttag(s): #{@book.tag_list} \t\t\t\t\tby: #{@book.creator}"
             @book.save!
             saved += 1
-
           else
             puts "***Did not import: either was already in the database, or your file has dupe urls. #{@book.title}.***"
             puts "\t\t(#{@book.url}).\n\t\t\ttag(s): #{@book.tag_list} \t\t\t\t\tby: #{@book.creator}"
@@ -67,9 +65,7 @@ namespace :books do
         else
           processed -= 1
         end
-
-
-    end
+      end
       puts '---------------------------------------'
       puts "Added #{saved}/#{processed} books."
       puts '---------------------------------------'
