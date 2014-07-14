@@ -20,7 +20,11 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 es:
-  hello: "Hello world"
+  logged_in:  "Usted está ahora conectado"
+  email_or_pass_invalid: "Email contraseña inválidos"
+  logged_out: "Usted se ha desconectado."
+  thank_you:  "Gracias por registrarse!"
+
   views:
     pagination:
       first: "&laquo;"
@@ -33,7 +37,9 @@ es:
       logout:     "Salir"
       signup:     "Registrarse"
       add_book:   "Agregar un libro"
+      add_video:  "Agregar un video"
       logged_as:  "Conectado como %{name}"
+      settings:   "Preferencias"
 
   books:
     show:
@@ -58,8 +64,41 @@ es:
     edit:
       edit_book:      "Editar libro"
 
+    edit_tags_form:
+      tags_hint:      "Separe las etiquetas con comas."
+      update_tags:    "Actualizar lista de etiquetas"
+
     tags:
       books_tagged_with:  "Libros etiquetados con %{tag}"
+
+  users:
+    settings:
+      settings:       "Preferencias"
+
+    new:
+      title:          "Regístrese como nuevo usuario"
+      name:           "Nombre"
+      password:       "Contraseña"
+      password_confirmation: "Confirmación de contraseña"
+      language:       "Lenguaje"
+      submit:         "Enviar"
+
+  videos:
+    form:
+      title:          "Título"
+      creator:        "Creador"
+      description:    "Descripción"
+      tag_list:       "Lista de etiquetas"
+      tags_hint:      "Separe las etiquetas con comas."
+
+    new:
+      new_video:      "Nuevo video"
+      back:           "Volver"
+
+    edit:
+      edit:           "Edición de video"
+      show:           "Mostrar"
+      back:           "Volver"
 
   sessions:
     new:
