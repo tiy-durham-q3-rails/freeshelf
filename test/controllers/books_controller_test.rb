@@ -2,7 +2,7 @@ require 'test_helper'
 
 class BooksControllerTest < ActionController::TestCase
   setup do
-    login
+    @user = login
     @book = books(:one)
   end
 
@@ -47,9 +47,15 @@ class BooksControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should get edit" do
+  test "should get edit if book was created by current_user" do
+    @book.update(user: @user)
     get :edit, id: @book
     assert_response :success
+  end
+
+  test "should get redirected from edit if book was not created by current_user" do
+    get :edit, id: @book
+    assert_response :redirect
   end
 
   test "should update book" do
