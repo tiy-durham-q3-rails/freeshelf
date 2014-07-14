@@ -12,6 +12,7 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema.define(version: 20140713190606) do
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -97,7 +98,7 @@ ActiveRecord::Schema.define(version: 20140713190606) do
     t.string   "password_digest"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.datetime "last_looked_at_suggestions", default: '2014-07-12 21:20:35'
+    t.datetime "last_looked_at_suggestions", default: '2014-07-14 14:51:50'
   end
 
   create_table "videos", force: true do |t|
