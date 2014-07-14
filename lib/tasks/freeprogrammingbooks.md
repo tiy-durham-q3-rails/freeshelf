@@ -1,4 +1,17 @@
-﻿###Index
+﻿###TeX
+* [Notes On Programming in TeX](http://pgfplots.sourceforge.net/TeX-programming-notes.pdf) (PDF) by Christian Feursänger
+* [Working through Screens](http://www.flashbulbinteraction.com/WTS.html) - Jacob Burghardt
+* [TeX by Topic, A TeXnician's Reference](http://eijkhout.net/texbytopic/texbytopic.html), by Victor Eijkhout
+* [TeX for the Impatient](https://www.gnu.org/software/teximpatient/), by Paul Abrahams, Kathryn Hargreaves, and Karl Berry
+* [The Computer Science of TeX and LaTeX](http://eijkhout.net/texsci/), by Victor Eijkhout
+
+See also [LaTeX](#latex)
+
+
+###Tizen
+* [Tizen for Dummies](https://developer.tizen.org/sites/default/files/blogs/tizenfordummiesmainchangelist.pdf) (PDF) by Jon Lansdell, Cheng Luo, Michelle Somersville
+
+###Index
 * [Ada](#ada)
 * [Agda](#agda)
 * [Android](#android)
