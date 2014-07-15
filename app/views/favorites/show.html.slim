@@ -1,0 +1,28 @@
+
+.small-12.columns
+  text-align: left
+    h3
+      - if current_user.favorite_books.count == 0
+        p You have no favorite books.
+        p Click the star on a books page to add books.
+      - else
+        = "#{current_user.name}'s Favorite books"
+.row
+  .large-12.columns
+    = render 'books/books', :books => current_user.favorite_books
+
+.small-12.columns
+  text-align: right
+    h3
+      - if current_user.favorite_tags.count == 0
+        p You have no favorite tags.
+        p Click the star on a tag search to add tags.
+      - else
+        = "#{current_user.name}'s Favorite tags"
+.row
+  .large-12.columns
+    .tags
+      - current_user.favorite_tags.each do |tag|
+        span.secondary.radius.label>
+          h6
+            = link_to tag, tag_books_path(tag.name)

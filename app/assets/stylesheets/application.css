@@ -10,9 +10,11 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
- *= require_self
  *= require foundation_and_overrides
+ *= require_self
+ *= require books
+ *= require videos
+ *= require favorites
  *= require font-awesome
  */
 
@@ -35,3 +37,8 @@ h1.logo {
 .logo a {
   color: #151515;
 }
+
+div.label {
+    margin: 10px;
+}
+

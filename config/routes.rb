@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   delete 'logout' => 'sessions#destroy', as: 'logout'
 
   resources :password_resets, only: [:new, :create, :show, :update]
-  resources :users, only: [:create]
+  resources :users, only: [:create, :update]
   resources :books, except: [:destroy] do
     get 'tags/:tag' => 'books#tags', :on => :collection, :as => :tag
     get 'tags' => 'books#edit_tags', :on => :member, :as => :edit_tags
@@ -15,7 +15,8 @@ Rails.application.routes.draw do
   resources :videos, except: [:destroy] do
     get 'tags/:tag' => 'video#tags', :on => :collection, :as => :tag
   end
-  resources :favorites, only: [:create, :destroy]
+  get 'sort' => 'books#sort'
+  resources :favorites, only: [:create, :destroy, :show]
 
   root 'books#index'
 end
