@@ -1,6 +1,8 @@
 ActiveAdmin.register User do
 
-  
+  menu priority: 4
+
+
   # See permitted parameters documentation:
   # https://github.com/gregbell/active_admin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #
@@ -13,7 +15,7 @@ ActiveAdmin.register User do
     end
     f.actions
   end
-  
+
   #
   # or
   #
