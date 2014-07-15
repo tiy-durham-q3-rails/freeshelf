@@ -1,7 +1,7 @@
 class Book < ActiveRecord::Base
   paginates_per 15
   acts_as_taggable
-  has_many :comments
+  has_many :comments, as: :commentable
 
   validates :title, presence: true
   validates :slug, presence: true

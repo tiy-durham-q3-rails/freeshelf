@@ -1,4 +1,3 @@
 class Comment < ActiveRecord::Base
-  belongs_to :book
-  belongs_to :video
+  belongs_to :commentable, polymorphic: true
 end
