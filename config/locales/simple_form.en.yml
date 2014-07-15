@@ -10,10 +10,11 @@ en:
         description:        "Description"
         cover:              "Cover"
         remote_cover_url:   "Remote cover url"
+        email_update:       "Email update"
         new:
-          submit:         "Create %{model}"
+          submit:           "Create %{model}"
         edit:
-          submit:         "Update %{model}"
+          submit:           "Update %{model}"
 
     # Labels and hints examples
     # labels:

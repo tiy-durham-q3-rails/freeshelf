@@ -88,6 +88,8 @@ es:
   users:
     settings:
       settings:       "Preferencias"
+      email_sign_up:  "Regístrese para recibir un email cada vez que se agregue un libro con una etiqueta dentro de sus favoritas."
+
 
     new:
       title:          "Regístrese como nuevo usuario"

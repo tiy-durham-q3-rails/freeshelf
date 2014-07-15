@@ -89,6 +89,7 @@ en:
   users:
     settings:
       settings:       "Settings"
+      email_sign_up:  "Sign up for an email when a book tagged with one of your favorite tags gets added"
 
     new:
       title:          "Sign up as a new user"

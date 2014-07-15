@@ -7,15 +7,16 @@ es:
         url:                "Url"
         year_created:       "Año de creación"
         user_tags:          
-          labels:            "Etiquetas del usuario"
+          labels:           "Etiquetas del usuario"
           hint:             "Separe las etiquetas con comas"
         description:        "Descripción"
         cover:              "Tapa"
         remote_cover_url:   "Url tapa remoto"
+        email_update:       "Registrar email"
         new:
-          submit:         "Crear %{model}"
+          submit:           "Crear %{model}"
         edit:
-          submit:         "Actualizar %{model}"
+          submit:           "Actualizar %{model}"
 
     # Labels and hints examples
     # labels:
