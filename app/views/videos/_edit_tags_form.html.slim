@@ -1,0 +1,5 @@
+= form_tag edit_tags_video_path(@video), method: 'patch', id: 'edit-tags-form'
+  = text_field_tag :user_tags, @video.tags_from(current_user).split(' ').join(', ')
+  small.hint Separate tags with commas.
+  = submit_tag "Update tag list", class: 'button'
+
