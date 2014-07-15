@@ -12,11 +12,19 @@ class User < ActiveRecord::Base
   has_many :favorite_tags, :through => :favorites,
            :source => :favoritable, :source_type => "ActsAsTaggableOn::Tag"
 
+  before_save :create_api_token
+
   acts_as_tagger
 
   def confirm_password_present
     if password.blank?
       errors.add(:password, "must be present")
+    end
+  end
+
+  def create_api_token
+    if api_token.nil?
+      self.api_token = "DUMBLEDORE"
     end
   end
 end
