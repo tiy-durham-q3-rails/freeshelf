@@ -5,7 +5,7 @@ class TagMailer < ActionMailer::Base
     @user = user
     @slug = slug
     @tag = tag
-    @url = "http://www.freeshelf.herokuapp.com/books/#{slug}"
-    mail to: @user.email, subject: "A New Book Was Added With Your Favorited Tag!"
+    @url = book_url(id: slug)
+    mail to: @user.email, subject: "[Freeshelf] A new book was added to the \"#{@tag}\" tag"
   end
 end

@@ -25,6 +25,7 @@ class BooksController < ApplicationController
   end
 
   def show
+    @related_books = @book.find_related_tags.take(3)
   end
 
   def new
