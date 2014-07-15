@@ -2,13 +2,17 @@
   .large-12.columns
     h1 Sign up as a new user
     = simple_form_for @user do |f|
-      = f.input :name
+      = f.input :name, label: t('.name')
       = f.input :email do
         = f.input_field :email, type: :email, class: "mailcheck"
         = f.hint "Must be a valid email", style: "display: none"
       .row
         .medium-6.columns
-          = f.input :password
+          = f.input :password, label: t('.password')
         .medium-6.columns
-          = f.input :password_confirmation
+          = f.input :password_confirmation, label: t('.password_confirmation')
+      .row    
+        .medium-6.columns
+          = f.label :locale, t('.language')
+          = f.select :locale, [["English", "en"], ["Español", "es"]]
       = f.button :submit

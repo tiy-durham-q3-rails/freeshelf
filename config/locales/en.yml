@@ -20,9 +20,127 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  logged_in: "You are now logged in."
+  email_or_pass_invalid: "Email or password is invalid"
+  logged_out: "You are now logged out."
+  thank_you:  "Thank you for signing up!"
+  logged_as:  "Logged in as %{name}"
+
   views:
     pagination:
       first: "&laquo;"
       last: "&raquo;"
       truncate: "&hellip;"
+
+  layouts:
+    application:
+      logout:     "Logout"
+      login:      "Login"
+      signup:     "Sign Up"
+      add_book:    "Add a book"
+      add_video:   "Add a video"
+      logged_as:  "Logged in as %{name}"
+      settings:   "Settings"
+      favorite_books: "Favorite books"
+
+    sort_list:
+      sort_by:        "Sort by"
+      alphabetically: "alphabetically"
+      date_added:     "Date added"
+      year_published: "Year published"
+      most_popular:   "Most popular"
+
+  books:
+    show:
+      edit:           "Edit"
+      link_to_book:   "Link to book"
+      related_books:  "Related books"
+
+    form:
+      title:          "Title"
+      author:         "Author"
+      document:       "Document"
+      publish_year:   "Publish Year"
+      tag_list:       "Tag list"
+      tags_hint:      "Separate tags with commas."
+      description:    "Description"
+      cover:          "Cover"
+      submit:         "Submit"
+
+    new:
+      new_book:       "New book"
+
+    edit:
+      edit_book:      "Edit books"
+
+    edit_tags_form:
+      tags_hint:      "Separate tags with commas."
+      update_tags:    "Update tag list"
+
+    tags:
+      books_tagged_with:  "Books tagged with %{tag}"
+
+  favorites:
+    show:
+      no_favorite_books:  "You have no favorite books."
+      click_stars:        "Click stars to add books."
+      favorite_books:     "%{name}'s favorite books"
+
+  users:
+    settings:
+      settings:       "Settings"
+      email_sign_up:  "Sign up for an email when a book tagged with one of your favorite tags gets added"
+
+    new:
+      title:          "Sign up as a new user"
+      name:           "Name"
+      password:       "Password"
+      password_confirmation: "Password confirmation"
+      language:       "Language"
+      submit:         "Submit"
+
+  videos:
+    form:
+      title:          "Title"
+      creator:        "Creator"
+      description:    "Description"
+      tag_list:       "Tag list"
+      tags_hint:      "Separate tags with commas."
+
+    new:
+      new_video:      "New video"
+      back:           "Back"
+
+    edit:
+      edit:           "Editing video"
+      show:           "Show"
+      back:           "Back"
+
+  sessions:
+    new:
+      log_in:         "Log in"
+      password:       "Password"
+      login:          "Login"
+      forgot_pass:    "Forgot your password?"
+
+  password_resets:
+    show:
+      update_password:  "Update password"
+      password:         "Password"
+      password_confirmation:  "Password confirmation"
+      submit:           "Submit"
+
+    new:
+      reset_your_password:  "Reset your pasword"
+      message:              "When you enter your email address, a reset password link will be sent to you."
+      your_email:           "Your email"
+      reset_password:       "Reset password"
+
+  activerecord:
+    models:
+      user:           "User"
+
+
+
+
+

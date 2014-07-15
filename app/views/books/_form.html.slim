@@ -3,9 +3,9 @@
   = form.input :creator
   = form.input :url
   = form.input :year_created
-  = label_tag :user_tags, 'Tag list'
+  = label_tag :user_tags
   = text_field_tag :user_tags, @book.tags_from(current_user)
-  small.hint Separate tags with commas.
+  small.hint = t('.tags_hint')
   = form.input :description, input_html: {rows: 10}
   .row
     .medium-6.columns
@@ -16,3 +16,4 @@
       = image_tag(book.cover_url) if book.cover?
 
   = form.button :submit
+

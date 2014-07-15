@@ -1,0 +1,33 @@
+es:
+  simple_form:            
+    labels:
+      defaults:
+        title:              "Título"
+        creator:            "Creador"
+        url:                "Url"
+        year_created:       "Año de creación"
+        user_tags:          
+          labels:           "Etiquetas del usuario"
+          hint:             "Separe las etiquetas con comas"
+        description:        "Descripción"
+        cover:              "Tapa"
+        remote_cover_url:   "Url tapa remoto"
+        email_update:       "Registrar email"
+        new:
+          submit:           "Crear %{model}"
+        edit:
+          submit:           "Actualizar %{model}"
+
+    # Labels and hints examples
+    # labels:
+    #   defaults:
+    #     password: 'Password'
+    #   user:
+    #     new:
+    #       email: 'E-mail to sign in.'
+    #     edit:
+    #       email: 'E-mail.'
+    # hints:
+    #   defaults:
+    #     username: 'User name to sign in.'
+    #     password: 'No special characters, please.'

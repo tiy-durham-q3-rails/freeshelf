@@ -1,5 +1,5 @@
-h1 Update your password
+h1 = t('.update_password')
 = simple_form_for @user, url: password_reset_path(id: @token) do |form|
-  = form.input :password
-  = form.input :password_confirmation
-  = form.button :submit
+  = form.input :password, label: t('.password')
+  = form.input :password_confirmation, label: t('.password_confirmation')
+  = form.button :submit, label: t('.submit')

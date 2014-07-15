@@ -5,6 +5,8 @@
     = f.input :creator
     = f.input :description
     = f.input :url
-    = f.input :tag_list, :hint => "Separate tags with commas."
+    = label_tag t('.tag_list')
+  	= text_field_tag :user_tags
+  	small.hint = t('.tags_hint')
   .form-actions
     = f.button :submit
