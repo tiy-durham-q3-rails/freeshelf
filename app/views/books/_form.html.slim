@@ -1,7 +1,6 @@
 = simple_form_for book, :html => {:multipart => true} do |form|
-  = form.input :user_id, as: :hidden, input_html: { value: current_user.id } unless @book.title
-  = form.input :title, label: t('.title')
-  = form.input :creator, label: t('.author')
+  = form.input :title
+  = form.input :creator
   = form.input :url
   = form.input :year_created, label: t('.publish_year')
   = label_tag t('.tag_list')
