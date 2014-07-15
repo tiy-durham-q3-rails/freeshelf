@@ -8,6 +8,8 @@ class Video < ActiveRecord::Base
   validates :creator, presence: true
   validates :slug, presence: true
 
+  belongs_to :user
+
   extend FriendlyId
   friendly_id :slug_candidates, :use => :slugged
 

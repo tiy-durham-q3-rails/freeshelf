@@ -1,0 +1,4 @@
+- video.tags.each do |tag|
+  span.secondary.radius.label>
+    = link_to tag, tag_videos_path(tag.name)
+= video_edit_tag_link_to(video) if current_user
