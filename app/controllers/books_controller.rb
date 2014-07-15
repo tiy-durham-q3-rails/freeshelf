@@ -34,9 +34,9 @@ class BooksController < ApplicationController
 
   def create
     @book = current_user.books.build(book_params)
-
     if @book.save
       add_user_as_tagger
+      email_update(@book)
       respond_to do |format|
         format.html { redirect_to @book, notice: "Your book was added." }
         format.js
@@ -56,6 +56,23 @@ class BooksController < ApplicationController
     else
       render :edit
     end
+  end
+
+
+  def email_update(book)
+    tags = book.tags
+    slug = book.slug
+    recipients = User.where(email_update:true).all
+    recipients.each do |user|
+      favs = user.favorite_tags
+      tags.each do |tag|
+        favs.each do |fav|
+          if fav.id == tag.id
+            TagMailer.new_tag_alert(user, slug, tag).deliver
+            end
+          end
+        end
+      end
   end
 
   def sort
@@ -79,6 +96,7 @@ class BooksController < ApplicationController
   def find_book
     @book = Book.friendly.includes(:tags).find(params[:id])
   end
+
 
   def correct_user
     redirect_to root_url, notice: 'You can only edit a book that you have uploaded.' unless current_user?(@book.user)
