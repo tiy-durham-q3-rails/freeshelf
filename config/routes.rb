@@ -17,5 +17,11 @@ Rails.application.routes.draw do
   get 'sort' => 'books#sort'
   resources :favorites, only: [:create, :destroy, :show]
 
+  namespace :api, :defaults => {:format => :json} do
+    namespace :v1 do
+      resources :books, only: [:index, :show, :create, :update]
+    end
+  end
+
   root 'books#index'
 end

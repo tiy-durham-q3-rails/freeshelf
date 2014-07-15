@@ -36,6 +36,16 @@ ActiveRecord::Schema.define(version: 20140715155931) do
   add_index "books", ["user_id"], name: "index_books_on_user_id", using: :btree
   add_index "books", ["year_created"], name: "index_books_on_year_created", using: :btree
 
+  create_table "email_confirmations", force: true do |t|
+    t.string   "token"
+    t.datetime "expires_at"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "email_confirmations", ["user_id"], name: "index_email_confirmations_on_user_id", using: :btree
+
   create_table "favorites", force: true do |t|
     t.integer  "user_id"
     t.integer  "favoritable_id"
@@ -110,8 +120,10 @@ ActiveRecord::Schema.define(version: 20140715155931) do
     t.string   "slug"
     t.integer  "year_created"
     t.integer  "favorites_count"
+    t.integer  "user_id"
   end
 
+  add_index "videos", ["user_id"], name: "index_videos_on_user_id", using: :btree
   add_index "videos", ["year_created"], name: "index_videos_on_year_created", using: :btree
 
 end

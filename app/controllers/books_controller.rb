@@ -5,21 +5,12 @@ class BooksController < ApplicationController
 
   def index
     @books = Book.includes(:tags).page params[:page]
-    respond_to do |format|
-      format.html
-      format.json
-    end
   end
 
   def tags
     @tag_name = params[:tag]
     @tag = ActsAsTaggableOn::Tag.where(:name => @tag_name).first_or_create
     @books = Book.includes(:tags).tagged_with(@tag).page params[:page]
-
-    respond_to do |format|
-      format.html
-      format.json
-    end
   end
 
   def edit_tags
@@ -27,18 +18,11 @@ class BooksController < ApplicationController
 
   def update_tags
     add_user_as_tagger
-    respond_to do |format|
-      format.html { redirect_to @book, notice: "Your tag list was updated." }
-      format.js
-    end
+    redirect_to @book, notice: "Your tag list was updated."
   end
 
   def show
     @related_books = @book.find_related_tags.take(3)
-    respond_to do |format|
-      format.html
-      format.json
-    end
   end
 
   def new
@@ -53,13 +37,9 @@ class BooksController < ApplicationController
       respond_to do |format|
         format.html { redirect_to @book, notice: "Your book was added." }
         format.js
-        format.json { render "show", :status => :created }
       end
     else
-      respond_to do |format|
-        format.html { render :new }
-        format.json { render :nothing => true, :status => :bad_request}
-      end
+      render :new
     end
   end
 
