@@ -1,10 +1,11 @@
 .row
   .medium-9.small-12.columns
+    #edit_tag_modal.reveal-modal data-reveal=''
     .video-info
       h2
         = @video.title
         - if current_user
-          small< = link_to "Edit", edit_video_path(@video)
+          small< = link_to "Edit", edit_video_path(@video) if current_user?(@video.user)
           span< = favorite_link_to @video
     .row
       .small-9.columns
@@ -17,10 +18,8 @@
         p.right
           = link_to "Link to video", @video.url
     p.tags
-      - @video.tags.each do |tag|
-        span.secondary.radius.label>
-          = link_to tag, tag_videos_path(tag.name)
-      .description = simple_format(@video.description)
+      = render partial: 'tag_list', locals: { video: @video }
+    .description = simple_format(@video.description)
 .row
   .large-12.columns
     = video_embed(@video.url)

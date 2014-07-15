@@ -1,0 +1,6 @@
+$('#edit_tag_modal').
+  html('').
+  foundation('reveal', 'close');
+
+$('.tags').html('<%= j render partial: "tag_list", locals: { video: @video } %>');
+
