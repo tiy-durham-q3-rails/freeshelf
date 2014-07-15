@@ -37,3 +37,8 @@ h1.logo {
 .logo a {
   color: #151515;
 }
+
+div.label {
+    margin: 10px;
+}
+

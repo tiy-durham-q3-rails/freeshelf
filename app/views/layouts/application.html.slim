@@ -40,9 +40,14 @@ html lang="en"
           = alert_box alert, "alert"
           = alert_box notice
           = yield
+
+
+    = javascript_include_tag "application"
+
   #settings-modal.reveal-modal.medium data-reveal=true
-    = render :partial => 'users/settings'
+    = render :partial => 'users/settings', :controller => 'users'
     .close-reveal-modal
       == "&#215;"
+
 
     = javascript_include_tag "application"
