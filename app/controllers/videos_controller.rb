@@ -34,7 +34,7 @@ class VideosController < ApplicationController
   end
 
   def create
-    @video = Video.new(video_params)
+    @video = current_user.videos.build(video_params)
 
     if @video.save
       add_user_as_tagger

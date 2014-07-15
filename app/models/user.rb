@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
   validates :password, confirmation: true
 
   has_many :books
+  has_many :videos
   has_many :favorites
   has_many :favorite_books, :through => :favorites,
            :source => :favoritable, :source_type => "Book"

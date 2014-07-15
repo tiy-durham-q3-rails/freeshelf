@@ -1,4 +1,4 @@
 = form_tag edit_tags_book_path(@book), method: 'patch', id: 'edit-tags-form'
-  = text_field_tag :user_tags, @book.tags_from(current_user)
+  = text_field_tag :user_tags, @book.tags_from(current_user).split(' ').join(', ')
   small.hint Separate tags with commas.
   = submit_tag "Update tag list", class: 'button'
