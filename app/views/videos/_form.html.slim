@@ -1,9 +1,9 @@
 = simple_form_for(@video) do |f|
   = f.error_notification
   .form-inputs
-    = f.input :title, label: t('.title')
-    = f.input :creator, label: t('.creator')
-    = f.input :description, label: t('.description')
+    = f.input :title
+    = f.input :creator
+    = f.input :description
     = f.input :url
     = label_tag t('.tag_list')
   	= text_field_tag :user_tags

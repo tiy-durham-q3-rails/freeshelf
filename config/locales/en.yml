@@ -41,6 +41,14 @@ en:
       add_video:   "Add a video"
       logged_as:  "Logged in as %{name}"
       settings:   "Settings"
+      favorite_books: "Favorite books"
+
+    sort_list:
+      sort_by:        "Sort by"
+      alphabetically: "alphabetically"
+      date_added:     "Date added"
+      year_published: "Year published"
+      most_popular:   "Most popular"
 
   books:
     show:
@@ -71,6 +79,12 @@ en:
 
     tags:
       books_tagged_with:  "Books tagged with %{tag}"
+
+  favorites:
+    show:
+      no_favorite_books:  "You have no favorite books."
+      click_stars:        "Click stars to add books."
+      favorite_books:     "%{name}'s favorite books"
 
   users:
     settings:

@@ -1,15 +1,19 @@
 en:
-  simple_form:
-    "yes": 'Yes'
-    "no": 'No'
-    required:
-      text: 'required'
-      mark: '*'
-      # You can uncomment the line below if you need to overwrite the whole required html.
-      # When using html, text and mark won't be used.
-      # html: '<abbr title="required">*</abbr>'
-    error_notification:
-      default_message: "Please review the problems below:"
+  simple_form:            
+    labels:
+      defaults:
+        title:              "Title"
+        creator:            "Creator"
+        url:                "Url"
+        year_created:       "Year Created"
+        user_tags:          "User tags"
+        description:        "Description"
+        cover:              "Cover"
+        remote_cover_url:   "Remote cover url"
+        new:
+          submit:         "Create %{model}"
+        edit:
+          submit:         "Update %{model}"
 
     # Labels and hints examples
     # labels:
