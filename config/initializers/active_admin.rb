@@ -110,7 +110,7 @@ ActiveAdmin.setup do |config|
   # roots for each namespace.
   #
   # Default:
-  config.root_to = 'admin/booksd#index'
+  config.root_to = 'dashboard#index'
 
 
   # == Admin Comments
