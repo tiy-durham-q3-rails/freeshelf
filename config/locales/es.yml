@@ -40,6 +40,14 @@ es:
       add_video:  "Agregar un video"
       logged_as:  "Conectado como %{name}"
       settings:   "Preferencias"
+      favorite_books: "Libros favoritos"
+
+    sort_list:
+      sort_by:        "Ordernar por"
+      alphabetically: "Alfabéticamente"
+      date_added:     "Fecha de agregado"
+      year_published: "Año de publicación"
+      most_popular:   "Más popular"
 
   books:
     show:
@@ -70,6 +78,12 @@ es:
 
     tags:
       books_tagged_with:  "Libros etiquetados con %{tag}"
+
+  favorites:
+    show:
+      no_favorite_books:  "No tiene libros favoritos."
+      click_stars:        "Haga click en las estrellas para agregar libros."
+      favorite_books:     "Libros favoritos de %{name}"
 
   users:
     settings:

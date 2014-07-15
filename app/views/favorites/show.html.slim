@@ -2,10 +2,10 @@
   text-align: center
     h3
       - if current_user.favorite_books.count == 0
-        p You have no favorite books.
-        p Click stars to add books.
+        p = t('.no_favorite_books')
+        p = t('.click_stars')
       - else
-        = "#{current_user.name}'s Favorite books"
+        = t('.favorite_books', name: current_user.name)
 .row
   .large-12.columns
     = render 'books/books', :books => current_user.favorite_books

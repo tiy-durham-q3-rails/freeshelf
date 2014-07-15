@@ -1,7 +1,7 @@
 es:
   simple_form:            
     labels:
-      book:
+      defaults:
         title:              "Título"
         creator:            "Creador"
         url:                "Url"
