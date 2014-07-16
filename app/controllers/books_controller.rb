@@ -4,7 +4,7 @@ class BooksController < ApplicationController
   before_action :correct_user, only: :edit
 
   def index
-    @books = Book.includes(:tags).page params[:page]
+    @books = Book.includes(:tags)
   end
 
   def tags

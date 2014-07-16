@@ -1,3 +1,6 @@
 .small-12.columns
-  h2 New book
-  = render 'form', :book => @book
+  - if current_user.admin
+    h2 New book
+    = render 'form', :book => @book
+  - else
+    403 Error "You must be an admin to change books"

@@ -1,4 +1,4 @@
-ruby '2.1.2'
+ruby '2.1.1'
 
 source 'https://rubygems.org'
 source 'https://rails-assets.org'
@@ -30,6 +30,7 @@ gem 'rails-assets-mailcheck'
 gem 'simple_form', '~> 3.0.2'
 gem 'slim', '~> 2.0.3'
 gem 'sprig', '~> 0.1.6'
+gem 'activeadmin', github: 'gregbell/active_admin'
 
 group :production do
   gem 'rails_12factor'
@@ -44,6 +45,11 @@ group :development, :test do
   gem 'dotenv-rails'
   gem "pry-rails"
   gem 'quiet_assets'
+  gem "rails_best_practices"
+  gem "rake"
+  gem "selenium-webdriver"
+  gem "wrong"
+  gem "cancan"
   gem "rails_best_practices", :require => false
   gem "rake", :require => false
 end
