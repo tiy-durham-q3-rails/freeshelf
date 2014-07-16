@@ -23,8 +23,15 @@ class User < ActiveRecord::Base
   end
 
   def create_api_token
-    if api_token.nil?
-      self.api_token = "DUMBLEDORE"
+    if api_token.blank?
+      self.api_token = build_api_token
     end
+  end
+
+  def build_api_token
+    begin
+      token = SecureRandom.urlsafe_base64
+    end while User.exists?(api_token: token)
+    token
   end
 end

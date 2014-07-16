@@ -6,3 +6,4 @@ records:
     name: Clinton Dreisbach
     email: clinton@dreisbach.us
     password: password
+    api_token: DUMBLEDORE
