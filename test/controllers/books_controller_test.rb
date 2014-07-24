@@ -16,14 +16,14 @@ class BooksControllerTest < ActionController::TestCase
   test "should get tags" do
     @book.tag_list = "hello, world, test"
     @book.save!
-    get :tags, :tag => "world"
+    get :index, :tag => "world"
     assert_response :success
     deny { assigns(:books).nil? }
     deny { assigns(:books).empty? }
   end
 
   test "tags should work on a tag that does not exist" do
-    get :tags, :tag => "no-go"
+    get :index, :tag => "no-go"
     assert_response :success
     deny { assigns(:books).nil? }
     assert { assigns(:books).empty? }

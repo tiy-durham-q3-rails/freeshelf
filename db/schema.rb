@@ -25,8 +25,8 @@ ActiveRecord::Schema.define(version: 20140714140903) do
     t.string   "creator"
     t.text     "description"
     t.string   "cover"
-    t.integer  "user_id"
     t.string   "slug"
+    t.integer  "user_id"
     t.integer  "favorites_count", default: 0
   end
 

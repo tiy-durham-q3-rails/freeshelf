@@ -10,15 +10,26 @@ class Book < ActiveRecord::Base
   belongs_to :user
   has_many :favorites, :as => :favoritable
 
-  scope :alphabetically, -> { order(:title)  }
-  scope :date_added, -> { order(created_at: :desc) }
-  scope :year_published, -> { order(year_created: :desc) }
-  scope :most_popular, -> { order(favorites_count: :desc)}
-
   mount_uploader :cover, CoverUploader
 
   extend FriendlyId
   friendly_id :slug_candidates, :use => :slugged
+
+  def self.sort_by(params)
+    direction = params[:order] == "asc" ? :asc : :desc
+    order_by = case params[:sort]
+                 when "alphabetically" then :title
+                 when "date_added" then {created_at: direction}
+                 when "year_published" then {year_created: direction}
+                 when "most_popular" then {favorites_count: direction}
+                 else nil
+               end
+    if order_by
+      self.order(order_by)
+    else
+      self
+    end
+  end
 
   def slug_candidates
     [:title, [:title, :creator]]
