@@ -2,7 +2,7 @@ CarrierWave.configure do |config|
   config.permissions = 0666
   config.directory_permissions = 0777
 
-  if Rails.env.production?
+  if Rails.env.production? && false
     config.storage = :fog
   else
     config.storage = :file
