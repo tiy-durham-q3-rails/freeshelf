@@ -66,6 +66,4 @@ test:
 #
 production:
   <<: *default
-  database: freeshelf_production
-  username: freeshelf
-  password: <%= ENV['FREESHELF_DATABASE_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %>

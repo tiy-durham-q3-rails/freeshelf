@@ -16,6 +16,7 @@ gem 'spring', group: :development
 gem 'acts-as-taggable-on', '~> 3.3.0'
 gem 'bcrypt', '~> 3.1.7'
 gem 'carrierwave', '~> 0.10.0'
+gem 'dotenv-deployment'
 gem 'kaminari', '~> 0.16.1'
 gem 'faker', '~> 1.4.1'
 gem 'font-awesome-sass', '~> 4.1.0'
@@ -31,21 +32,25 @@ gem 'simple_form', '~> 3.0.2'
 gem 'slim', '~> 2.0.3'
 gem 'sprig', '~> 0.1.6'
 
-group :production do
-  gem 'rails_12factor'
-  gem 'postmark-rails'
-  gem 'unicorn', '~> 4.8.3'
-end
+# group :production do
+#   gem 'rails_12factor'
+#   gem 'postmark-rails'
+#   gem 'unicorn', '~> 4.8.3'
+# end
 
 group :development, :test do
   gem "better_errors"
   gem "binding_of_caller"
   gem "brakeman", :require => false
-  gem 'dotenv-rails'
+  # gem 'dotenv-rails'
   gem "pry-rails"
   gem 'quiet_assets'
   gem "rails_best_practices", :require => false
   gem "rake", :require => false
+end
+
+group :development do
+  gem 'capistrano-rails', '~> 1.1.1'
 end
 
 group :test do
