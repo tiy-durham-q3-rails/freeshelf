@@ -32,7 +32,6 @@ gem 'slim', '~> 2.0.3'
 gem 'sprig', '~> 0.1.6'
 
 group :production do
-  gem 'rails_12factor'
   gem 'postmark-rails'
   gem 'unicorn', '~> 4.8.3'
 end

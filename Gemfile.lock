@@ -207,9 +207,6 @@ GEM
       railties (= 4.1.4)
       sprockets-rails (~> 2.0)
     rails-assets-mailcheck (1.0.3)
-    rails_12factor (0.0.2)
-      rails_serve_static_assets
-      rails_stdout_logging
     rails_best_practices (1.15.4)
       activesupport
       awesome_print
@@ -220,8 +217,6 @@ GEM
       json
       require_all
       ruby-progressbar
-    rails_serve_static_assets (0.0.2)
-    rails_stdout_logging (0.0.3)
     railties (4.1.4)
       actionpack (= 4.1.4)
       activesupport (= 4.1.4)
@@ -337,7 +332,6 @@ DEPENDENCIES
   quiet_assets
   rails (~> 4.1)
   rails-assets-mailcheck
-  rails_12factor
   rails_best_practices
   rake
   sass-rails (~> 4.0.3)
