@@ -324,6 +324,7 @@ DEPENDENCIES
   kaminari (~> 0.16.1)
   launchy
   mini_magick (~> 3.7.0)
+  nokogiri
   oembedr
   pg
   poltergeist

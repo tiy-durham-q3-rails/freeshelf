@@ -43,8 +43,10 @@ group :development, :test do
   gem 'dotenv-rails'
   gem "pry-rails"
   gem 'quiet_assets'
-  gem "rails_best_practices", :require => false
-  gem "rake", :require => false
+  gem "rails_best_practices"
+  gem "rake"
+  gem "wrong"
+  gem 'nokogiri'
 end
 
 group :test do
@@ -55,5 +57,4 @@ group :test do
   gem 'poltergeist'
   gem 'simplecov', '~> 0.7.1', :require => false
   gem 'selenium-webdriver'
-  gem "wrong", :require => false
 end
