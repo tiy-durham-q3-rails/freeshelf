@@ -11,7 +11,7 @@ ul.large-block-grid-3.medium-block-grid-2.small-block-grid-1.content-list
           - book.tags.each do |tag|
             span.secondary.radius.label>
               = link_to tag, tag_books_path(tag.name)
-        .description = simple_format(book.description)
+        .description = simple_format(book.description.truncate(300))
 
 - if books.respond_to?(:current_page)
   = paginate books, :outer_window => 2
